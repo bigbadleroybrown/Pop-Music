@@ -31,6 +31,7 @@
 {
     BOOL _isBarHide;
     BOOL _isPlaying;
+    BOOL _canInsertItem;
 }
 
 - (void)viewDidLoad {
@@ -118,6 +119,7 @@
     
     _isBarHide = YES;
     _isPlaying = NO;
+    _canInsertItem = YES;
     
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
     [_backgroundView addGestureRecognizer:tapGR];
@@ -189,11 +191,6 @@
 
 #pragma mark - Media (song) Picker
 
-/*
- * This method is called when the user presses the magnifier button (because this selector was used
- * to create the button in configureBars, defined earlier in this file). It displays a media picker
- * screen to the user configured to show only audio files.
- */
 - (void)pickSong {
     
     //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Media picker doesn't work in the simulator, please run this app on a device." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -227,12 +224,12 @@
     // get a URL reference to the selected item
     NSURL *url = [item valueForProperty:MPMediaItemPropertyAssetURL];
     
-    // pass the URL to playURL:, defined earlier in this file
+    // pass the URL to playURL
     [self playURL:url];
 }
 
 /*
- * This method is called when the user cancels out of the media picker. It just dismisses the media picker screen.
+ * 
  */
 - (void)mediaPickerDidCancel:(MPMediaPickerController *) mediaPicker {
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -277,18 +274,18 @@
 
 
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.visualizer setEmitterFromTouch: [touches anyObject]];
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.visualizer setEmitterPositionFromTouch: [touches anyObject]];
-    [self.visualizer setIsEmitting:YES];
-    
-    
-}
+//-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [self.visualizer setEmitterFromTouch: [touches anyObject]];
+//}
+//
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [self.visualizer setEmitterPositionFromTouch: [touches anyObject]];
+//    [self.visualizer setIsEmitting:YES];
+//    
+//    
+//}
 
 
 

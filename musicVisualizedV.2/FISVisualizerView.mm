@@ -32,7 +32,7 @@
         [self setBackgroundColor: [UIColor blackColor]];
         emitterLayer = (CAEmitterLayer *)self.layer;
         
-        //Shapes the emitter as a rectangle that extends across most of the center of the screen. Particles are initially created within this area.
+        
         
         CGFloat width = MAX(frame.size.width, frame.size.height);
         CGFloat height = MIN(frame.size.width, frame.size.height);
@@ -43,7 +43,7 @@
         emitterLayer.emitterShape = kCAEmitterLayerPoints;
         //emitterLayer.renderMode = kCAEmitterLayerCuboid; //orginally additive
         
-        //Creates a CAEmitterCell that renders particles using "myImage".png
+        
         
         self.cell = [CAEmitterCell emitterCell];
         self.cell.name = @"cell";
@@ -52,7 +52,7 @@
         childCell.lifetime = 1.0f / 60.0f; //childCell particles have a lifetime of 1/60 seconds; the same length as a screen refresh while parents cells last for .75-1.25 seconds
         childCell.birthRate = 60.0f; //number of particles emitted per second
         
-        //each dies in 1/60th of a second, there will always be a particle created when the previous particle dies
+        
         
         childCell.velocity = 0.0f; //particles velocity in points per second
         childCell.contents = (id) [[UIImage imageNamed:@"spark.png"] CGImage]; //the contents to make up the cell
