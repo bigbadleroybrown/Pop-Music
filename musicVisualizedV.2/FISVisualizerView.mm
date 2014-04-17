@@ -40,7 +40,7 @@
         
         //this sets the size of the particles to spawn
         emitterLayer.emitterSize = CGSizeMake(width-80, 60); //10 10
-        emitterLayer.emitterShape = kCAEmitterLayerPoints;
+        emitterLayer.emitterShape = kCAEmitterLayerCuboid;
         //emitterLayer.renderMode = kCAEmitterLayerCuboid; //orginally additive
         
         

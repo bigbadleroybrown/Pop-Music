@@ -11,7 +11,7 @@
 
 @interface ViewController : UIViewController <MPMediaPickerControllerDelegate, UIToolbarDelegate>
 
--(void)setEmitterPositionFromTouch: (UITouch*)touch;
--(void)setIsEmitting:(BOOL)isEmitting;
+//-(void)setEmitterPositionFromTouch: (UITouch*)touch;
+//-(void)setIsEmitting:(BOOL)isEmitting;
 
 @end
