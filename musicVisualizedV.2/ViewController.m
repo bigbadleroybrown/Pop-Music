@@ -59,7 +59,7 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     CGRect frame = self.view.frame;
-    CGRect frame2 = CGRectMake(300.0, 294.0, 150.0, 10.0);
+//    CGRect frame2 = CGRectMake(300.0, 294.0, 150.0, 10.0);
     
     self.backgroundView = [[UIView alloc] initWithFrame:frame]; //defines the background view
     [_backgroundView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
@@ -72,21 +72,21 @@
     [_navBar setBarStyle:UIBarStyleBlackTranslucent];
     [_navBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     
-    UINavigationItem *navTitleItem = [[UINavigationItem alloc] initWithTitle:@"Music Visualizer"];
+    UINavigationItem *navTitleItem = [[UINavigationItem alloc] initWithTitle:@"Pop Music"];
     [_navBar pushNavigationItem:navTitleItem animated:NO];
     
     [self.view addSubview:_navBar];
     
     
     //Slider
-    
-    self.colorSlider = [[UISlider alloc] initWithFrame:frame2];
-    self.colorSlider.minimumValue = 0.0;
-    self.colorSlider.maximumValue = 10.0;
-    self.colorSlider.continuous = YES;
-    self.colorSlider.value = 25.0;
-    [self.colorSlider addTarget:self action:@selector(changeColors) forControlEvents:UIControlEventValueChanged];
-    //[_toolBar addSubview:_colorSlider];
+//    
+//    self.colorSlider = [[UISlider alloc] initWithFrame:frame2];
+//    self.colorSlider.minimumValue = 0.0;
+//    self.colorSlider.maximumValue = 10.0;
+//    self.colorSlider.continuous = YES;
+//    self.colorSlider.value = 25.0;
+//    [self.colorSlider addTarget:self action:@selector(changeColors) forControlEvents:UIControlEventValueChanged];
+//    //[_toolBar addSubview:_colorSlider];
     
     
     //[self.colorSlider setValue:0.5 animated:NO];
