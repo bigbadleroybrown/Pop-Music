@@ -16,8 +16,4 @@
 @property (strong, nonatomic) CAEmitterCell *cell;
 
 
-//-(void)setEmitterPositionFromTouch: (UITouch *)t;
-
-
-
 @end

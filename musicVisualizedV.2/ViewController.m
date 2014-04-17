@@ -126,7 +126,6 @@
 }
 
 
-
 - (void)toggleBars {
     CGFloat navBarDis = -44;
     CGFloat toolBarDis = 44;
@@ -193,8 +192,6 @@
 
 - (void)pickSong {
     
-    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Media picker doesn't work in the simulator, please run this app on a device." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    //    [alert show];
     
     MPMediaPickerController *picker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeAnyAudio];
     [picker setDelegate:self];
@@ -228,9 +225,7 @@
     [self playURL:url];
 }
 
-/*
- * 
- */
+
 - (void)mediaPickerDidCancel:(MPMediaPickerController *) mediaPicker {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -271,24 +266,6 @@
     //    NSLog(@"%f",self.colorSlider.value);
     
 }
-
-
-
-//-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    [self.visualizer setEmitterFromTouch: [touches anyObject]];
-//}
-//
-//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    [self.visualizer setEmitterPositionFromTouch: [touches anyObject]];
-//    [self.visualizer setIsEmitting:YES];
-//    
-//    
-//}
-
-
-
 
 
 @end
