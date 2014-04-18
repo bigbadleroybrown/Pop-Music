@@ -34,7 +34,9 @@
     BOOL _canInsertItem;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+
+{
 
     [super viewDidLoad];
     [self configureBars];
@@ -49,13 +51,17 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+
+{
     [super viewDidAppear:animated];
     [self toggleBars];
 }
 
 
-- (void)configureBars {
+- (void)configureBars
+
+{
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     CGRect frame = self.view.frame;
@@ -103,8 +109,6 @@
     
     self.pauseBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(playPause)];
     
-    //self.nextBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:<#(SEL)#>]
-    
     UIBarButtonItem *leftFlexBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *rightFlexBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
@@ -114,7 +118,7 @@
     [_toolBar setItems:_playItems];
     
     [self.view addSubview:_toolBar];
-    [self.view addSubview:_colorSlider];
+    //[self.view addSubview:_colorSlider];
     
     
     _isBarHide = YES;
@@ -126,7 +130,9 @@
 }
 
 
-- (void)toggleBars {
+- (void)toggleBars
+
+{
     CGFloat navBarDis = -44;
     CGFloat toolBarDis = 44;
     if (_isBarHide ) {
@@ -147,22 +153,24 @@
     _isBarHide = !_isBarHide;
 }
 
-- (void)tapGestureHandler:(UITapGestureRecognizer *)tapGR {
+- (void)tapGestureHandler:(UITapGestureRecognizer *)tapGR
+
+{
     [self toggleBars];
 }
 
-
 #pragma mark - Music control
 
-- (void)playPause {
-    if (_isPlaying) {
+- (void)playPause
+{
+    if (_isPlaying)
+    {
         // Pause audio here
-        
         [_audioPlayer pause];
-        
         [_toolBar setItems:_playItems];  // toggle play/pause button
     }
-    else {
+    else
+    {
         // Play audio here
         [_audioPlayer play];
         [_toolBar setItems:_pauseItems]; // toggle play/pause button
@@ -170,11 +178,12 @@
     _isPlaying = !_isPlaying;
 }
 
+- (void)playURL:(NSURL *)url
 
-
-- (void)playURL:(NSURL *)url {
+{
     if (_isPlaying) {
-        [self playPause]; // Pause the previous audio player
+        
+    [self playPause]; // Pause previous audio player
     }
     
     // Add audioPlayer configurations here
@@ -190,8 +199,8 @@
 
 #pragma mark - Media (song) Picker
 
-- (void)pickSong {
-    
+- (void)pickSong
+{
     
     MPMediaPickerController *picker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeAnyAudio];
     [picker setDelegate:self];
@@ -200,16 +209,11 @@
     
 }
 
-
 #pragma mark - Media Picker Delegate
 
-/*
- * This method is called when the user chooses something from the media picker screen. It dismisses the media picker screen
- * and plays the selected song.
- */
-- (void)mediaPicker:(MPMediaPickerController *) mediaPicker didPickMediaItems:(MPMediaItemCollection *) collection {
-    
-    // remove the media picker screen
+- (void)mediaPicker:(MPMediaPickerController *) mediaPicker didPickMediaItems:(MPMediaItemCollection *) collection
+{
+   
     [self dismissViewControllerAnimated:YES completion:NULL];
     
     // grab the first selection (media picker is capable of returning more than one selected item,
@@ -225,8 +229,8 @@
     [self playURL:url];
 }
 
-
-- (void)mediaPickerDidCancel:(MPMediaPickerController *) mediaPicker {
+- (void)mediaPickerDidCancel:(MPMediaPickerController *) mediaPicker
+{
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

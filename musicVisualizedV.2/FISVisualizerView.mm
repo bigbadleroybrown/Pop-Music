@@ -33,7 +33,6 @@
         emitterLayer = (CAEmitterLayer *)self.layer;
         
         
-        
         CGFloat width = MAX(frame.size.width, frame.size.height);
         CGFloat height = MIN(frame.size.width, frame.size.height);
         emitterLayer.emitterPosition = CGPointMake(width/2, height/2.0);
@@ -94,7 +93,6 @@
     }
     return self;
 }
-
 
 -(void)update
 

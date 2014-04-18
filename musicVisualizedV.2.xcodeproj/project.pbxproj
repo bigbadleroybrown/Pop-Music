@@ -87,8 +87,6 @@
 		2E7A7BB418D393D8001892AA /* emitter.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emitter.ped; sourceTree = "<group>"; };
 		2E7A7BB618D39C52001892AA /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		2E7A7BBC18D3A1AE001892AA /* Flare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flare.png; sourceTree = "<group>"; };
-		2EB383FA18E365BA003538DF /* 06 Blue Jeans (Penguin Prison Remix).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "06 Blue Jeans (Penguin Prison Remix).m4a"; sourceTree = "<group>"; };
-		2EEDB4B518D8FA820099B4CA /* 03 One Girl _ One Boy.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "03 One Girl _ One Boy.m4a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,8 +211,6 @@
 		2E7A7B0F18D35FBE001892AA /* Resources (songs and png's) */ = {
 			isa = PBXGroup;
 			children = (
-				2EEDB4B518D8FA820099B4CA /* 03 One Girl _ One Boy.m4a */,
-				2EB383FA18E365BA003538DF /* 06 Blue Jeans (Penguin Prison Remix).m4a */,
 				2E2B894418D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 */,
 				2E7A7BBC18D3A1AE001892AA /* Flare.png */,
 				2E7A7BB618D39C52001892AA /* spark.png */,
