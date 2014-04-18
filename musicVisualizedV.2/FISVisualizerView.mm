@@ -53,8 +53,8 @@
         
         
         
-        childCell.velocity = 0.0f; //particles velocity in points per second
-        childCell.contents = (id) [[UIImage imageNamed:@"spark.png"] CGImage]; //the contents to make up the cell
+        childCell.velocity = 1.0f; //particles velocity in points per second
+        childCell.contents = (id) [[UIImage imageNamed:@"spark.png"] CGImage];
         self.cell.emitterCells = @[childCell];
         
         //sets the particle color, along with a range by which each of the red, green, and blue color components may vary.
@@ -67,7 +67,7 @@
         
         //sets the scale and the amount by which the scale can vary for the generated particles.
         
-        self.cell.scale = 0.4f; ///.2 size of particles
+        self.cell.scale = 0.5f; ///.2 size of particles
         self.cell.scaleRange = 0.2f;
         
         //sets the amount of time each parent particle will exist to between .75 and 1.25 seconds, and sets it to create 80 particles per second.
@@ -80,7 +80,7 @@
         
         self.cell.velocity = 100.0f;
         self.cell.velocityRange = 300.0f;
-        self.cell.emissionRange = M_PI *1;  //width of emitter layer
+        self.cell.emissionRange = M_PI *2;  //width of emitter layer
         
         //add emmitter cell to the emitter layer
         emitterLayer.emitterCells = @[self.cell];
@@ -99,7 +99,7 @@
 {
     
     //scale set to a default value of 0.5 and check to see whether or not _audioPlayer is playing.
-    float scale = 0.5;
+    float scale = 0.1;
     if (_audioPlayer.playing) {
         
         //If it is playing call updateMeters on _audioPlayer, which refreshes the AVAudioPlayer data based on the current audio.
