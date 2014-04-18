@@ -9,9 +9,11 @@
 #import "FISAppDelegate.h"
 #import "ViewController.h"
 
+
 @interface AppDelegate ()
 
 @property (strong, nonatomic) ViewController *vc;
+@property (strong, nonatomic) UIWindow *secondWindow;
 
 @end
 
@@ -22,14 +24,41 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
+    [center addObserver:self selector:@selector(handleScreenDidConnectNotification:) name:UIScreenDidConnectNotification object:nil];
+    
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
     self.vc = [[ViewController alloc] init];
+    
     [self.window setRootViewController:_vc];
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)checkForExistingScreenAndInitializeIfPresent
+{
+    if ([[UIScreen screens] count] > 1)
+    {
+        // Get the screen object that represents the external display.
+        UIScreen *secondScreen = [[UIScreen screens] objectAtIndex:1];
+        // Get the screen's bounds so that you can create a window of the correct size.
+        CGRect screenBounds = secondScreen.bounds;
+        
+        self.secondWindow = [[UIWindow alloc] initWithFrame:screenBounds];
+        self.secondWindow.screen = secondScreen;
+        
+        // Set up initial content to display...
+        // Show the window.
+        self.secondWindow.hidden = NO;
+        
+
+    }
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -59,4 +88,28 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)handleScreenDidConnectNotification:(NSNotification *)aNotification
+{
+    
+    UIScreen *newScreen = [aNotification object];
+    CGRect screenBounds = newScreen.bounds;
+    
+    if (!self.secondWindow)
+    {
+        self.secondWindow = [[UIWindow alloc] initWithFrame:screenBounds];
+        self.secondWindow.screen = newScreen;
+        
+        ViewController *visualizer = [[ViewController alloc]init];
+        
+        // self.dataStore.airplayVC = [[airPlayViewController alloc] init];
+        
+        self.secondWindow.rootViewController = visualizer; //self.dataStore.airplayVC
+        
+        self.secondWindow.hidden = NO;
+        
+    }
+    
+}
+// in IBAction for big ass play button
+//[self.dataStore.airplayVC playpause]
 @end

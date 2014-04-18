@@ -65,8 +65,7 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     
     CGRect frame = self.view.frame;
-//    CGRect frame2 = CGRectMake(300.0, 294.0, 150.0, 10.0);
-    
+
     self.backgroundView = [[UIView alloc] initWithFrame:frame]; //defines the background view
     [_backgroundView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     [_backgroundView setBackgroundColor:[UIColor blackColor]];
