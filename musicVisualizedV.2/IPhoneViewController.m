@@ -8,10 +8,9 @@
 
 #import "IPhoneViewController.h"
 
-
 @interface IPhoneViewController ()
 
-@property (strong, nonatomic) UIButton *playButton;
+
 
 
 @end
@@ -24,15 +23,12 @@
     if (self) {
         // Custom initialization
     }
-    
-   
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // Do any additional setup after loading the view.
 }
 
@@ -52,8 +48,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
 
 @end
 
