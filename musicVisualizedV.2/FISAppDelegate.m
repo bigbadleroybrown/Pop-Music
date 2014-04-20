@@ -37,6 +37,7 @@
     [self.window setRootViewController:_vc];
     
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
