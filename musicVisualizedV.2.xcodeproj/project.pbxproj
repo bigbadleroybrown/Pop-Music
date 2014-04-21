@@ -39,6 +39,7 @@
 		2E7F49531901C85E00CC3A32 /* AirplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F49521901C85E00CC3A32 /* AirplayViewController.m */; };
 		2E7F499C1905A55000CC3A32 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F499B1905A55000CC3A32 /* DataStore.m */; };
 		2E7F49A21905D1C300CC3A32 /* hd_spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F49A11905D1C300CC3A32 /* hd_spark.png */; };
+		2E7F49A81905D5D600CC3A32 /* hd2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F49A71905D5D600CC3A32 /* hd2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		2E7F499A1905A55000CC3A32 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
 		2E7F499B1905A55000CC3A32 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		2E7F49A11905D1C300CC3A32 /* hd_spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hd_spark.png; sourceTree = "<group>"; };
+		2E7F49A71905D5D600CC3A32 /* hd2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hd2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				2E7F49A11905D1C300CC3A32 /* hd_spark.png */,
+				2E7F49A71905D5D600CC3A32 /* hd2.png */,
 				2E2B894418D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 */,
 				2E7A7BB618D39C52001892AA /* spark.png */,
 				2E7A7BB418D393D8001892AA /* emitter.ped */,
@@ -341,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E7F49A81905D5D600CC3A32 /* hd2.png in Resources */,
 				2E7A7AE018D35E18001892AA /* Images.xcassets in Resources */,
 				2E7A7BB718D39C52001892AA /* spark.png in Resources */,
 				2E7A7AD218D35E18001892AA /* InfoPlist.strings in Resources */,

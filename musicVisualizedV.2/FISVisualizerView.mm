@@ -37,7 +37,7 @@
         CGFloat height = MIN(frame.size.width, frame.size.height);
         emitterLayer.emitterPosition = CGPointMake(width, height); //(width/2, height/2.0);
         
-        emitterLayer.emitterSize = CGSizeMake(width=1000, 50.0); //originally -80, 60
+        emitterLayer.emitterSize = CGSizeMake(width=1000, 50.0); //originally -80, 60  need to figure out how to set size to bounds of screen
         emitterLayer.emitterShape = kCAEmitterLayerLine;
         emitterLayer.renderMode = kCAEmitterLayerCuboid; //orginally had as additive
         
@@ -53,7 +53,7 @@
         
         
         childCell.velocity = 1.0f; //particles velocity in points per second
-        childCell.contents = (id) [[UIImage imageNamed:@"hd_spark.png"] CGImage];
+        childCell.contents = (id) [[UIImage imageNamed:@"hd2.png"] CGImage];
         self.cell.emitterCells = @[childCell];
         
         //sets the particle color, along with a range by which each of the red, green, and blue color components may vary.
@@ -69,7 +69,7 @@
         self.cell.scale = 1.0f; ///.2 size of particles
         self.cell.scaleRange = 0.2f;
         
-        //sets the amount of time each parent particle will exist to between .75 and 1.25 seconds, and sets it to create 80 particles per second.
+        //sets the amount of time each parent particle will exist to between .75 and 1.25 seconds
         
         self.cell.lifetime = 1.0f;
         self.cell.lifetimeRange = .25f;
@@ -79,7 +79,7 @@
         
         self.cell.velocity = 100.0f;
         self.cell.velocityRange = 300.0f;
-        self.cell.emissionRange = M_PI *2;  //width of emitter layer
+        self.cell.emissionRange = M_PI *2;  
         
         //add emmitter cell to the emitter layer
         emitterLayer.emitterCells = @[self.cell];
