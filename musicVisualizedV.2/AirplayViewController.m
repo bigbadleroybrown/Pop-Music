@@ -37,7 +37,7 @@
     [self configureAudioSession];
     [self configureAirplayView];
     
-    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame];
+    self.visualizer = [[FISVisualizerView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];//was self.view.frame
     [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     [_backgroundView addSubview:_visualizer];
     

@@ -35,12 +35,11 @@
         
         CGFloat width = MAX(frame.size.width, frame.size.height);
         CGFloat height = MIN(frame.size.width, frame.size.height);
-        emitterLayer.emitterPosition = CGPointMake(width/2, height/2.0);
+        emitterLayer.emitterPosition = CGPointMake(width, height); //(width/2, height/2.0);
         
-        //this sets the size of the particles to spawn
-        emitterLayer.emitterSize = CGSizeMake(width-80, 60); //10 10
-        emitterLayer.emitterShape = kCAEmitterLayerCuboid;
-        //emitterLayer.renderMode = kCAEmitterLayerCuboid; //orginally additive
+        emitterLayer.emitterSize = CGSizeMake(width=1000, 50.0); //originally -80, 60
+        emitterLayer.emitterShape = kCAEmitterLayerLine;
+        emitterLayer.renderMode = kCAEmitterLayerCuboid; //orginally had as additive
         
         
         
@@ -54,7 +53,7 @@
         
         
         childCell.velocity = 1.0f; //particles velocity in points per second
-        childCell.contents = (id) [[UIImage imageNamed:@"spark.png"] CGImage];
+        childCell.contents = (id) [[UIImage imageNamed:@"hd_spark.png"] CGImage];
         self.cell.emitterCells = @[childCell];
         
         //sets the particle color, along with a range by which each of the red, green, and blue color components may vary.
@@ -67,7 +66,7 @@
         
         //sets the scale and the amount by which the scale can vary for the generated particles.
         
-        self.cell.scale = 0.5f; ///.2 size of particles
+        self.cell.scale = 1.0f; ///.2 size of particles
         self.cell.scaleRange = 0.2f;
         
         //sets the amount of time each parent particle will exist to between .75 and 1.25 seconds, and sets it to create 80 particles per second.

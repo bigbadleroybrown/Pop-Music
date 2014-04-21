@@ -43,7 +43,7 @@
     
     [self configureAudioSession];
     
-    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame]; //creates the visualizer instance (view) that will fill parent view and adds it to the background view
+    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame]; //creates the visualizer instance (view) that will fill parent view and adds it to the background view 
     [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     [_backgroundView addSubview:_visualizer];
     
