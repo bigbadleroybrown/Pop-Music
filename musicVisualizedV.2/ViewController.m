@@ -212,6 +212,7 @@
 
 - (void)mediaPicker:(MPMediaPickerController *) mediaPicker didPickMediaItems:(MPMediaItemCollection *) collection
 {
+    
    
     [self dismissViewControllerAnimated:YES completion:NULL];
     

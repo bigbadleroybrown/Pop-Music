@@ -7,27 +7,104 @@
 //
 
 #import "AirplayViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import "FISVisualizerView.h"
+
 
 @interface AirplayViewController ()
+
+@property (strong, nonatomic) UIView *backgroundView;
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+@property (strong, nonatomic) FISVisualizerView *visualizer;
+
 
 @end
 
 @implementation AirplayViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+
+    BOOL _isPlaying;
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self configureAudioSession];
+    
+    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame]; //creates the visualizer instance (view) that will fill parent view and adds it to the background view
+    [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+    [_backgroundView addSubview:_visualizer];
+    
+    [self configureAudioPlayer];
+    
 }
+
+#pragma mark - Music control
+
+- (void)playPause
+{
+    if (_isPlaying)
+    {
+        
+        [_audioPlayer pause];
+        
+    }
+    else
+    {
+        
+        [_audioPlayer play];
+        
+    }
+    _isPlaying = !_isPlaying;
+}
+
+- (void)playURL:(NSURL *)url
+
+{
+    if (_isPlaying) {
+        
+        [self playPause]; // Pause previous audio player
+    }
+    
+    // Add audioPlayer configurations here
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    
+    [_audioPlayer setNumberOfLoops:-1];
+    [_audioPlayer setMeteringEnabled:YES];
+    [_visualizer setAudioPlayer:_audioPlayer];
+    
+    [self playPause];   // Play
+}
+
+#pragma mark - Configure AV Audio Player
+
+-(void)configureAudioPlayer
+{
+    NSURL *audioFile = [[NSBundle mainBundle] URLForResource:@"Dreams - Fleetwood Mac (Psychemagik Remix)" withExtension:@"mp3"];
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFile error:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    [_audioPlayer setNumberOfLoops:-1];
+    [_audioPlayer setMeteringEnabled:YES];
+    [_visualizer setAudioPlayer:_audioPlayer];
+}
+
+-(void)configureAudioSession
+{
+    NSError *error;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+    
+    if (error) {
+        NSLog(@"Error setting Category: %@", [error description]);
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
