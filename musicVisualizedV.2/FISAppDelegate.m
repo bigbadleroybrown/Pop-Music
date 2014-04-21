@@ -14,7 +14,7 @@
 
 @interface AppDelegate ()
 
-@property (strong, nonatomic) ViewController *vc;
+@property (strong, nonatomic) IPhoneViewController *vc;
 @property (strong, nonatomic) UIWindow *secondWindow;
 
 @end
@@ -34,9 +34,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.vc = [[ViewController alloc] init];
+    self.vc = [[IPhoneViewController alloc] init]; //iphone VC
     
-    [self.window setRootViewController:_vc];
+    [self.window setRootViewController:_vc]; // iphone vc
     
     [self.window makeKeyAndVisible];
     
@@ -102,7 +102,7 @@
         self.secondWindow = [[UIWindow alloc] initWithFrame:screenBounds];
         self.secondWindow.screen = newScreen;
         
-        ViewController *visualizer = [[ViewController alloc]init];
+        AirplayViewController *visualizer = [[AirplayViewController alloc]init];
         
         // self.dataStore.airplayVC = [[airPlayViewController alloc] init];
         
