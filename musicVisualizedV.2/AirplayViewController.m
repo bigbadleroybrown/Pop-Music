@@ -34,6 +34,7 @@
     [super viewDidLoad];
     
     [self configureAudioSession];
+    [self configureAirplayView];
     
     self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame];
     [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
@@ -41,6 +42,20 @@
     
     [self configureAudioPlayer];
     
+}
+
+
+-(void)configureAirplayView
+{
+    [self.view setBackgroundColor:[UIColor blackColor]];
+    
+    CGRect frame = self.view.frame;
+    
+    self.backgroundView = [[UIView alloc] initWithFrame:frame]; //defines the background view
+    [_backgroundView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+    [_backgroundView setBackgroundColor:[UIColor blackColor]];
+    
+    [self.view addSubview:_backgroundView];
 }
 
 #pragma mark - Music control
