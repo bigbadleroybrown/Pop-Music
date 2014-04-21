@@ -39,7 +39,7 @@
         
         emitterLayer.emitterSize = CGSizeMake(width=1000, 50.0); //originally -80, 60  need to figure out how to set size to bounds of screen
         emitterLayer.emitterShape = kCAEmitterLayerLine;
-        emitterLayer.renderMode = kCAEmitterLayerCuboid; //orginally had as additive
+        emitterLayer.renderMode = kCAEmitterLayerAdditive; //orginally had as additive
         
         
         
@@ -66,25 +66,25 @@
         
         //sets the scale and the amount by which the scale can vary for the generated particles.
         
-        self.cell.scale = 1.0f; ///.2 size of particles
+        self.cell.scale = 1.0f; //.2 size of particles
         self.cell.scaleRange = 0.2f;
         
         //sets the amount of time each parent particle will exist to between .75 and 1.25 seconds
         
         self.cell.lifetime = 1.0f;
         self.cell.lifetimeRange = .25f;
-        self.cell.birthRate = 100;
+        self.cell.birthRate = 100; //should actually be proportional to screen size
         
         //configures the emitter to create particles with a variable velocity, and to emit them in any direction.
         
         self.cell.velocity = 100.0f;
         self.cell.velocityRange = 300.0f;
-        self.cell.emissionRange = M_PI *2;  
+        self.cell.emissionRange = M_PI *2;
         
         //add emmitter cell to the emitter layer
         emitterLayer.emitterCells = @[self.cell];
         
-        CADisplayLink *dpLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)]; //update particle method from below is called here. A CADisplayLink is a timer that allows your application to synchronize its drawing to the refresh rate of the display. That is, it behaves much like a NSTimer with a 1/60 second time interval, except that it’s guaranteed to be called each time the device prepares to redraw the screen, which is usually at a rate of 60 times per second.
+        CADisplayLink *dpLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)]; //update particle method from below is called here. A CADisplayLink is a timer that allows application to synchronize its drawing to the refresh rate of the display. That is it’s guaranteed to be called each time the device prepares to redraw the screen, which is at a rate of 60 times per second.
         
         
         [dpLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];//The second line calls addToRunLoop:forMode:, which starts the display link timer.
