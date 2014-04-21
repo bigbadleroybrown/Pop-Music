@@ -8,6 +8,8 @@
 
 #import "FISAppDelegate.h"
 #import "ViewController.h"
+#import "AirplayViewController.h"
+#import "IPhoneViewController.h"
 
 
 @interface AppDelegate ()

@@ -30,11 +30,12 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     [self configureAudioSession];
     
-    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame]; //creates the visualizer instance (view) that will fill parent view and adds it to the background view
+    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame];
     [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     [_backgroundView addSubview:_visualizer];
     
@@ -47,17 +48,21 @@
 - (void)playPause
 {
     if (_isPlaying)
+    
     {
         
         [_audioPlayer pause];
         
     }
+    
     else
+    
     {
-        
+    
         [_audioPlayer play];
-        
+    
     }
+
     _isPlaying = !_isPlaying;
 }
 
@@ -66,7 +71,7 @@
 {
     if (_isPlaying) {
         
-        [self playPause]; // Pause previous audio player
+        [self playPause];
     }
     
     // Add audioPlayer configurations here
@@ -77,7 +82,7 @@
     [_audioPlayer setMeteringEnabled:YES];
     [_visualizer setAudioPlayer:_audioPlayer];
     
-    [self playPause];   // Play
+    [self playPause];
 }
 
 #pragma mark - Configure AV Audio Player
