@@ -46,6 +46,7 @@
 - (void)checkForExistingScreenAndInitializeIfPresent
 {
     if ([[UIScreen screens] count] > 1)
+    
     {
         // Get the screen object that represents the external display.
         UIScreen *secondScreen = [[UIScreen screens] objectAtIndex:1];
@@ -59,9 +60,7 @@
         // Show the window.
         self.secondWindow.hidden = NO;
         
-
     }
-
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -102,11 +101,11 @@
         self.secondWindow = [[UIWindow alloc] initWithFrame:screenBounds];
         self.secondWindow.screen = newScreen;
         
-        AirplayViewController *visualizer = [[AirplayViewController alloc]init];
+        AirplayViewController *airplayVC = [[AirplayViewController alloc]init];
         
         // self.dataStore.airplayVC = [[airPlayViewController alloc] init];
         
-        self.secondWindow.rootViewController = visualizer; //self.dataStore.airplayVC
+        self.secondWindow.rootViewController = airplayVC; //self.dataStore.airplayVC
         
         self.secondWindow.hidden = NO;
         

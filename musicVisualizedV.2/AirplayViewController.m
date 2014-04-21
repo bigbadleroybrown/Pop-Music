@@ -29,6 +29,7 @@
 }
 
 - (void)viewDidLoad
+
 {
     
     [super viewDidLoad];
@@ -44,8 +45,8 @@
     
 }
 
-
 -(void)configureAirplayView
+
 {
     [self.view setBackgroundColor:[UIColor blackColor]];
     
@@ -61,6 +62,7 @@
 #pragma mark - Music control
 
 - (void)playPause
+
 {
     if (_isPlaying)
     
@@ -103,6 +105,7 @@
 #pragma mark - Configure AV Audio Player
 
 -(void)configureAudioPlayer
+
 {
     NSURL *audioFile = [[NSBundle mainBundle] URLForResource:@"Dreams - Fleetwood Mac (Psychemagik Remix)" withExtension:@"mp3"];
     NSError *error;
@@ -116,6 +119,7 @@
 }
 
 -(void)configureAudioSession
+
 {
     NSError *error;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
@@ -127,6 +131,7 @@
 
 
 - (void)didReceiveMemoryWarning
+
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -11,6 +11,6 @@
 @interface AirplayViewController : UIViewController
 
 -(void)playPause;
-- (void)playURL:(NSURL *)url;
+-(void)playURL:(NSURL *)url;
 
 @end
