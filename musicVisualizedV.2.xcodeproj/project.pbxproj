@@ -38,6 +38,7 @@
 		2E7A7BBD18D3A1AE001892AA /* Flare.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7A7BBC18D3A1AE001892AA /* Flare.png */; };
 		2E7F49501901C84C00CC3A32 /* IPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F494F1901C84C00CC3A32 /* IPhoneViewController.m */; };
 		2E7F49531901C85E00CC3A32 /* AirplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F49521901C85E00CC3A32 /* AirplayViewController.m */; };
+		2E7F499C1905A55000CC3A32 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F499B1905A55000CC3A32 /* DataStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		2E7F494F1901C84C00CC3A32 /* IPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPhoneViewController.m; sourceTree = "<group>"; };
 		2E7F49511901C85E00CC3A32 /* AirplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirplayViewController.h; sourceTree = "<group>"; };
 		2E7F49521901C85E00CC3A32 /* AirplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirplayViewController.m; sourceTree = "<group>"; };
+		2E7F499A1905A55000CC3A32 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		2E7F499B1905A55000CC3A32 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +232,8 @@
 		2E7A7B1018D35FE2001892AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E7F499A1905A55000CC3A32 /* DataStore.h */,
+				2E7F499B1905A55000CC3A32 /* DataStore.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				2E7A7BB318D39371001892AA /* UIEffectDesignerView.m in Sources */,
 				2E7A7AD418D35E18001892AA /* main.m in Sources */,
 				2E7F49501901C84C00CC3A32 /* IPhoneViewController.m in Sources */,
+				2E7F499C1905A55000CC3A32 /* DataStore.m in Sources */,
 				2E7A7AD818D35E18001892AA /* FISAppDelegate.m in Sources */,
 				2E7A7B0218D35EB9001892AA /* FISVisualizerView.mm in Sources */,
 				2E7A7B1818D37C1A001892AA /* ViewController.m in Sources */,
