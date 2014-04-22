@@ -50,7 +50,7 @@
         childCell.birthRate = 60.0f; //number of particles emitted per second
         
         childCell.velocity = 1.0f; //particles velocity in points per second
-        childCell.contents = (id) [[UIImage imageNamed:@"hd2.png"] CGImage];
+        childCell.contents = (id) [[UIImage imageNamed:@"smallHD.png"] CGImage];
         self.cell.emitterCells = @[childCell];
         
         //sets the particle color, along with a range by which each of the red, green, and blue color components may vary.
@@ -68,7 +68,7 @@
         
         //sets the amount of time each parent particle will exist to between .75 and 1.25 seconds
         
-        self.cell.lifetime = 1.0f;
+        self.cell.lifetime = 0.5f;
         self.cell.lifetimeRange = .25f;
         self.cell.birthRate = 100; //should actually be proportional to screen size
         

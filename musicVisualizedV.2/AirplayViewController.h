@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AirplayViewController : UIViewController
+
+
+@interface AirplayViewController : UIViewController 
 
 -(void)playPause;
 -(void)playURL:(NSURL *)url;

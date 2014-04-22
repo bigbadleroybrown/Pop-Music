@@ -13,7 +13,6 @@
 
 @property (strong, nonatomic) AirplayViewController *airplayViewController;
 
-
 + (instancetype)sharedDataStore;
 
 @end

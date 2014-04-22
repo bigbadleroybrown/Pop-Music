@@ -10,6 +10,7 @@
 
 @implementation DataStore
 
+
 + (instancetype)sharedDataStore {
     static DataStore *_sharedDataStore = nil;
     static dispatch_once_t onceToken;

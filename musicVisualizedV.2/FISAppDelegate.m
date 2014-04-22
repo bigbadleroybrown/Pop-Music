@@ -15,7 +15,7 @@
 
 @interface AppDelegate ()
 
-@property (strong, nonatomic) IPhoneViewController *vc;
+@property (strong, nonatomic) IphoneViewController *vc;
 @property (strong, nonatomic) UIWindow *secondWindow;
 
 @end
@@ -35,7 +35,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.vc = [[IPhoneViewController alloc] init]; //iphone VC
+    self.vc = [[IphoneViewController alloc] init]; //iphone VC
     
     [self.window setRootViewController:_vc]; // iphone vc
     

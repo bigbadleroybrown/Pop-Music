@@ -40,6 +40,7 @@
 		2E7F499C1905A55000CC3A32 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F499B1905A55000CC3A32 /* DataStore.m */; };
 		2E7F49A21905D1C300CC3A32 /* hd_spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F49A11905D1C300CC3A32 /* hd_spark.png */; };
 		2E7F49A81905D5D600CC3A32 /* hd2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F49A71905D5D600CC3A32 /* hd2.png */; };
+		2EB51C821906B33900F7268E /* smallHD.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB51C811906B33900F7268E /* smallHD.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		2E7F499B1905A55000CC3A32 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		2E7F49A11905D1C300CC3A32 /* hd_spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hd_spark.png; sourceTree = "<group>"; };
 		2E7F49A71905D5D600CC3A32 /* hd2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hd2.png; sourceTree = "<group>"; };
+		2EB51C811906B33900F7268E /* smallHD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallHD.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		2E7A7B0F18D35FBE001892AA /* Resources (songs and png's) */ = {
 			isa = PBXGroup;
 			children = (
+				2EB51C811906B33900F7268E /* smallHD.png */,
 				2E7F49A11905D1C300CC3A32 /* hd_spark.png */,
 				2E7F49A71905D5D600CC3A32 /* hd2.png */,
 				2E2B894418D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 */,
@@ -353,6 +356,7 @@
 				2E7A7BB518D393D8001892AA /* emitter.ped in Resources */,
 				2E2B894518D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 in Resources */,
 				2E7F49A21905D1C300CC3A32 /* hd_spark.png in Resources */,
+				2EB51C821906B33900F7268E /* smallHD.png in Resources */,
 				2E7A7ADB18D35E18001892AA /* Main.storyboard in Resources */,
 				2E7A7B0618D35F72001892AA /* Default.png in Resources */,
 				2E7A7B0818D35F72001892AA /* Default-568h@2x.png in Resources */,

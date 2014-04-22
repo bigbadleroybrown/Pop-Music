@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface IPhoneViewController : UIViewController
+@interface IphoneViewController : UIViewController  <MPMediaPickerControllerDelegate>
 
 @end

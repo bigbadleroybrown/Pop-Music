@@ -183,6 +183,7 @@
     if (_isPlaying) {
         
     [self playPause]; // Pause previous audio player
+    
     }
     
     // Add audioPlayer configurations here

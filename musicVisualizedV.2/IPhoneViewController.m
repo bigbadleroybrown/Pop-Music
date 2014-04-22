@@ -10,14 +10,14 @@
 #import "AirplayViewController.h"
 #import "DataStore.h"
 
-@interface IPhoneViewController ()
+@interface IphoneViewController ()
 
 -(void)playButtonTapped;
 
 
 @end
 
-@implementation IPhoneViewController
+@implementation IphoneViewController
 
 - (void)viewDidLoad
 {
@@ -27,6 +27,8 @@
     playButton.frame = CGRectMake(50.0, 50.0, 50.0, 50.0);
     [playButton addTarget:self action:@selector(playButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [playButton setTitle:@"Play" forState:UIControlStateNormal];
+    
+    
     
     [self.view addSubview:playButton];
     
