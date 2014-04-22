@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AirplayViewController.h"
 
 @interface DataStore : NSObject
+
+@property (strong, nonatomic) AirplayViewController *airplayViewController;
+
+
++ (instancetype)sharedDataStore;
 
 @end

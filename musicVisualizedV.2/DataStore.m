@@ -10,4 +10,15 @@
 
 @implementation DataStore
 
++ (instancetype)sharedDataStore {
+    static DataStore *_sharedDataStore = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedDataStore = [[DataStore alloc] init];
+    });
+    
+    return _sharedDataStore;
+}
+
+
 @end

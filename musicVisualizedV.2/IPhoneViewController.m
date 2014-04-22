@@ -7,10 +7,12 @@
 //
 
 #import "IPhoneViewController.h"
+#import "AirplayViewController.h"
+#import "DataStore.h"
 
 @interface IPhoneViewController ()
 
-
+-(void)playButtonTapped;
 
 
 @end
@@ -20,6 +22,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    playButton.frame = CGRectMake(50.0, 50.0, 50.0, 50.0);
+    [playButton addTarget:self action:@selector(playButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [playButton setTitle:@"Play" forState:UIControlStateNormal];
+    
+    [self.view addSubview:playButton];
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -28,6 +40,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)playButtonTapped
+{
+    
+    DataStore *dataStore =[DataStore sharedDataStore];
+    
+    AirplayViewController *airplayVC = dataStore.airplayViewController;
+    
+    [airplayVC playPause];
+    
+}
+
 
 /*
 #pragma mark - Navigation

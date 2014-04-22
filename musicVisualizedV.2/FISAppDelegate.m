@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "AirplayViewController.h"
 #import "IPhoneViewController.h"
+#import "DataStore.h"
 
 
 @interface AppDelegate ()
@@ -96,6 +97,9 @@
     UIScreen *newScreen = [aNotification object];
     CGRect screenBounds = newScreen.bounds;
     
+    DataStore *airplayDataStore = [DataStore sharedDataStore];
+    
+    
     if (!self.secondWindow)
     {
         self.secondWindow = [[UIWindow alloc] initWithFrame:screenBounds];
@@ -110,6 +114,7 @@
         
         self.secondWindow.hidden = NO;
         
+        airplayDataStore.airplayViewController = airplayVC;
     }
     
 }
