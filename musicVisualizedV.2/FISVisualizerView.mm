@@ -40,9 +40,9 @@
         emitterLayer.emitterPosition = CGPointMake(width, height); //(width/2, height/2.0);
         
         NSLog(@"%f",self.bounds.size.height);
-       emitterLayer.emitterSize = CGSizeMake(self.bounds.size.height *2, self.bounds.size.width *2); //originally -80, 60 need to figure out how to set size to bounds of screen
+        emitterLayer.emitterSize = CGSizeMake(self.bounds.size.height *2, self.bounds.size.width *2); //originally -80, 60 need to figure out how to set size to bounds of screen
         emitterLayer.emitterShape = kCAEmitterLayerLine;
-                emitterLayer.renderMode = kCAEmitterLayerAdditive; //orginally had as additive
+        emitterLayer.renderMode = kCAEmitterLayerAdditive; //orginally had as additive
         
         
         
