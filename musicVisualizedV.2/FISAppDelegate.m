@@ -103,6 +103,7 @@
         
         AirplayViewController *airplayVC = [[AirplayViewController alloc]init];
         
+        
         // self.dataStore.airplayVC = [[airPlayViewController alloc] init];
         
         self.secondWindow.rootViewController = airplayVC; //self.dataStore.airplayVC

@@ -27,19 +27,22 @@
 }
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
+    UIScreen *mainScreen = [UIScreen mainScreen];
+    self = [super initWithFrame:CGRectMake(0, 0, mainScreen.bounds.size.width, mainScreen.bounds.size.height)];
     if (self) {
         [self setBackgroundColor: [UIColor blackColor]];
         emitterLayer = (CAEmitterLayer *)self.layer;
         
         
-        CGFloat width = MAX(frame.size.width, frame.size.height);
+        
+        CGFloat width = MAX(frame.size.width*2, frame.size.height);
         CGFloat height = MIN(frame.size.width, frame.size.height);
         emitterLayer.emitterPosition = CGPointMake(width, height); //(width/2, height/2.0);
         
-        emitterLayer.emitterSize = CGSizeMake(width=1000, 50.0); //originally -80, 60  need to figure out how to set size to bounds of screen
+        NSLog(@"%f",self.bounds.size.height);
+       emitterLayer.emitterSize = CGSizeMake(self.bounds.size.height *2, self.bounds.size.width *2); //originally -80, 60 need to figure out how to set size to bounds of screen
         emitterLayer.emitterShape = kCAEmitterLayerLine;
-        emitterLayer.renderMode = kCAEmitterLayerAdditive; //orginally had as additive
+                emitterLayer.renderMode = kCAEmitterLayerAdditive; //orginally had as additive
         
         
         
