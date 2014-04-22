@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
-
-
-@interface AirplayViewController : UIViewController 
+@interface AirplayViewController : UIViewController
 
 -(void)playPause;
 -(void)playURL:(NSURL *)url;
+
+
 
 @end

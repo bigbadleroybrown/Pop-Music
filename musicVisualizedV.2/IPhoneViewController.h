@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface IphoneViewController : UIViewController  <MPMediaPickerControllerDelegate>
+@interface IphoneViewController : UIViewController <MPMediaPickerControllerDelegate>
+
+- (void)pickSong;
+- (void)mediaPicker:(MPMediaPickerController *) mediaPicker didPickMediaItems:(MPMediaItemCollection *) collection;
 
 @end
