@@ -14,6 +14,7 @@
 @interface IphoneViewController ()
 
 @property (strong, nonatomic) UINavigationBar *navBar;
+@property (strong, nonatomic) UIButton *playPauseButton;
 
 -(void)playButtonTapped;
 
@@ -22,16 +23,20 @@
 
 @implementation IphoneViewController
 
+{
+    BOOL _isPlaying;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 
     FAKIonIcons *playPauseButton = [FAKIonIcons ios7PlayIconWithSize:150.0];
-    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    playButton.frame = CGRectMake(300.0, 100.0, 120.0, 120.0);
-    [playButton addTarget:self action:@selector(playButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [playButton setAttributedTitle:[playPauseButton attributedString] forState:UIControlStateNormal];
+    self.playPauseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.playPauseButton.frame = CGRectMake(300.0, 100.0, 120.0, 120.0);
+    [self.playPauseButton addTarget:self action:@selector(playButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.playPauseButton setAttributedTitle:[playPauseButton attributedString] forState:UIControlStateNormal];
     
     //[playButton setTitle:@"Play" forState:UIControlStateNormal];
 
@@ -54,7 +59,7 @@
     
     [self.view addSubview:_navBar];
     [self.view addSubview:pickSong];
-    [self.view addSubview:playButton];
+    [self.view addSubview:self.playPauseButton];
     
     
     
@@ -96,6 +101,10 @@
     AirplayViewController *airplayVC = dataStore.airplayViewController;
  
     [airplayVC playURL:url];
+    
+    _isPlaying = YES;
+    
+    [self showPlayPauseButton];
 }
 
 - (void)mediaPickerDidCancel:(MPMediaPickerController *) mediaPicker
@@ -120,7 +129,30 @@
     
     [airplayVC playPause];
     
+    _isPlaying = !_isPlaying;
+    
+    [self showPlayPauseButton];
+    
 }
+
+-(void)showPlayPauseButton
+{
+    
+    if (_isPlaying)
+    {
+        FAKIonIcons *playPauseButton = [FAKIonIcons ios7PauseIconWithSize:150.0];
+        [self.playPauseButton setAttributedTitle:[playPauseButton attributedString] forState:UIControlStateNormal];
+    }
+    
+    else
+    {
+        FAKIonIcons *playPauseButton = [FAKIonIcons ios7PlayIconWithSize:150.0];
+        [self.playPauseButton setAttributedTitle:[playPauseButton attributedString] forState:UIControlStateNormal];
+    }
+    
+}
+
+//    if is playing then make puase icon set attibute on play button else set back to play
 
 //-(void)pickSongTapped
 //{
