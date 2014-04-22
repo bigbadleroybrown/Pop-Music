@@ -48,7 +48,7 @@
         childCell.name = @"childCell";
         childCell.lifetime = 1.0f / 60.0f; //childCell particles have a lifetime of 1/60 seconds; the same length as a screen refresh while parents cells last for .75-1.25 seconds
         childCell.birthRate = 60.0f; //number of particles emitted per second
-        sma
+        
         childCell.velocity = 1.0f; //particles velocity in points per second
         childCell.contents = (id) [[UIImage imageNamed:@"hd2.png"] CGImage];
         self.cell.emitterCells = @[childCell];
