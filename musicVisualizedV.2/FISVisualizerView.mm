@@ -33,8 +33,6 @@
         [self setBackgroundColor: [UIColor blackColor]];
         emitterLayer = (CAEmitterLayer *)self.layer;
         
-        
-        
         CGFloat width = MAX(frame.size.width*2, frame.size.height);
         CGFloat height = MIN(frame.size.width, frame.size.height);
         emitterLayer.emitterPosition = CGPointMake(width, height); //(width/2, height/2.0);
@@ -44,17 +42,13 @@
         emitterLayer.emitterShape = kCAEmitterLayerLine;
         emitterLayer.renderMode = kCAEmitterLayerAdditive; //orginally had as additive
         
-        
-        
         self.cell = [CAEmitterCell emitterCell];
         self.cell.name = @"cell";
         CAEmitterCell *childCell = [CAEmitterCell emitterCell]; //results in particles emitting paticles
         childCell.name = @"childCell";
         childCell.lifetime = 1.0f / 60.0f; //childCell particles have a lifetime of 1/60 seconds; the same length as a screen refresh while parents cells last for .75-1.25 seconds
         childCell.birthRate = 60.0f; //number of particles emitted per second
-        
-        
-        
+        sma
         childCell.velocity = 1.0f; //particles velocity in points per second
         childCell.contents = (id) [[UIImage imageNamed:@"hd2.png"] CGImage];
         self.cell.emitterCells = @[childCell];
