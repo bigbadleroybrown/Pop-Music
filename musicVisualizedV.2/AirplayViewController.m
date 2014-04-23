@@ -91,8 +91,6 @@
         [self playPause];
     }
     
-    // Add audioPlayer configurations here
-    
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     
     [_audioPlayer setNumberOfLoops:-1];
@@ -152,4 +150,3 @@
 @end
 
 
-//copy everything from original VC and ditch bars and make play pause method public

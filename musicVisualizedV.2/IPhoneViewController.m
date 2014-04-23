@@ -48,7 +48,7 @@
     [pickSong setAttributedTitle:[musicSearch attributedString] forState:UIControlStateNormal];
     
     
-    // NavBar
+    // NavBar -NOT WORKING
     CGRect frame = self.view.frame;
     _navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, -44, frame.size.width, 44)];
     [_navBar setBarStyle:UIBarStyleBlackTranslucent];
@@ -86,7 +86,7 @@
     
     [self dismissViewControllerAnimated:YES completion:NULL];
     
-    // grab the first selection
+
     MPMediaItem *item = [[collection items] objectAtIndex:0];
     NSString *title = [item valueForProperty:MPMediaItemPropertyTitle];
     [_navBar.topItem setTitle:title];
@@ -132,7 +132,7 @@
     _isPlaying = !_isPlaying;
     
     [self showPlayPauseButton];
-    
+        
 }
 
 -(void)showPlayPauseButton
@@ -152,21 +152,6 @@
     
 }
 
-//    if is playing then make puase icon set attibute on play button else set back to play
-
-//-(void)pickSongTapped
-//{
-//    
-//    DataStore *dataStore = [DataStore sharedDataStore];
-//    
-//    AirplayViewController *airplayVC = dataStore.airplayViewController;
-//    
-//    [airplayVC pickSong];
-//    
-//}
-
-
-
 
 /*
 #pragma mark - Navigation
@@ -181,5 +166,3 @@
 
 @end
 
-//big ass play button
-//
