@@ -217,7 +217,7 @@
    
     [self dismissViewControllerAnimated:YES completion:NULL];
     
-    // grab the first selection (media picker is capable of returning more than one selected item,
+
     MPMediaItem *item = [[collection items] objectAtIndex:0];
     NSString *title = [item valueForProperty:MPMediaItemPropertyTitle];
     [_navBar.topItem setTitle:title];
