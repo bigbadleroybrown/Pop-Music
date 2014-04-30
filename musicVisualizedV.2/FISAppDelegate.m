@@ -13,10 +13,12 @@
 #import "DataStore.h"
 
 
+
 @interface AppDelegate ()
 
-@property (strong, nonatomic) IphoneViewController *vc;
+//@property (strong, nonatomic) IphoneViewController *vc;
 @property (strong, nonatomic) UIWindow *secondWindow;
+@property (strong, nonatomic) ViewController *vc;
 
 @end
 
@@ -24,22 +26,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+//
+    
+    // Override point for customization after application launch.
+    //self.window.backgroundColor = [UIColor whiteColor];
+    
+    self.vc = [[ViewController alloc] init]; //iphone VC
+    
+    [self.window setRootViewController:_vc]; // iphone vc
+    
+    [self.window makeKeyAndVisible];
+//
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
     [center addObserver:self selector:@selector(handleScreenDidConnectNotification:) name:UIScreenDidConnectNotification object:nil];
-    
-    
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    self.vc = [[IphoneViewController alloc] init]; //iphone VC
-    
-    [self.window setRootViewController:_vc]; // iphone vc
-    
-    [self.window makeKeyAndVisible];
+ 
     
     return YES;
 }

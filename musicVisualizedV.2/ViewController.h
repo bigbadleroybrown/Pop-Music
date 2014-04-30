@@ -1,17 +1,13 @@
 //
-//  FISViewController.h
-//  musicVisualizedV.2
+//  ViewController.h
+//  Example
 //
-//  Created by Eugene Watson on 3/14/14.
-//  Copyright (c) 2014 Eugene Watson. All rights reserved.
+//  Created by Kevin Renskers on 03-10-12.
+//  Copyright (c) 2012 Gangverk. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 
-@interface ViewController : UIViewController <MPMediaPickerControllerDelegate, UIToolbarDelegate>
-
-//-(void)setEmitterPositionFromTouch: (UITouch*)touch;
-//-(void)setIsEmitting:(BOOL)isEmitting;
+@interface ViewController : UIViewController
 
 @end

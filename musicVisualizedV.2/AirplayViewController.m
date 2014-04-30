@@ -41,7 +41,7 @@
     [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     [_backgroundView addSubview:_visualizer];
     
-    [self configureAudioPlayer];
+    //[self configureAudioPlayer];
     
 }
 
@@ -103,19 +103,19 @@
 
 #pragma mark - Configure AV Audio Player
 
--(void)configureAudioPlayer
-
-{
-    NSURL *audioFile = [[NSBundle mainBundle] URLForResource:@"Dreams - Fleetwood Mac (Psychemagik Remix)" withExtension:@"mp3"];
-    NSError *error;
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFile error:&error];
-    if (error) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    [_audioPlayer setNumberOfLoops:-1];
-    [_audioPlayer setMeteringEnabled:YES];
-    [_visualizer setAudioPlayer:_audioPlayer];
-}
+//-(void)configureAudioPlayer
+//
+//{
+//    NSURL *audioFile = [[NSBundle mainBundle] URLForResource:@"Dreams - Fleetwood Mac (Psychemagik Remix)" withExtension:@"mp3"];
+//    NSError *error;
+//    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFile error:&error];
+//    if (error) {
+//        NSLog(@"%@", [error localizedDescription]);
+//    }
+//    [_audioPlayer setNumberOfLoops:-1];
+//    [_audioPlayer setMeteringEnabled:YES];
+//    [_visualizer setAudioPlayer:_audioPlayer];
+//}
 
 -(void)configureAudioSession
 
