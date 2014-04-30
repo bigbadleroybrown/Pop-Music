@@ -43,10 +43,6 @@
 
 @implementation GVMusicPlayerController
 
-@synthesize isPreparedToPlay = _isPreparedToPlay;
-@synthesize currentPlaybackTime = _currentPlaybackTime;
-@synthesize currentPlaybackRate = _currentPlaybackRate;
-
 + (GVMusicPlayerController *)sharedInstance {
     static dispatch_once_t onceQueue;
     static GVMusicPlayerController *instance = nil;

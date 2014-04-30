@@ -23,8 +23,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *trackCurrentPlaybackTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *trackLengthLabel;
 @property (weak, nonatomic) IBOutlet UIView *chooseView;
-@property (weak, nonatomic) IBOutlet UIButton *repeatButton;
-@property (weak, nonatomic) IBOutlet UIButton *shuffleButton;
+//@property (weak, nonatomic) IBOutlet UIButton *repeatButton;
+//@property (weak, nonatomic) IBOutlet UIButton *shuffleButton;
+@property (weak, nonatomic) IBOutlet UIButton *airplayButton;
 @property (strong, nonatomic) NSTimer *timer;
 @property BOOL panningProgress;
 @property BOOL panningVolume;
@@ -66,7 +67,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.shuffleButton.selected = ([GVMusicPlayerController sharedInstance].shuffleMode != MPMusicShuffleModeOff);
+//    self.shuffleButton.selected = ([GVMusicPlayerController sharedInstance].shuffleMode != MPMusicShuffleModeOff);
     [self setCorrectRepeatButtomImage];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
@@ -151,40 +152,40 @@
     self.panningProgress = NO;
 }
 
-- (IBAction)shuffleButtonPressed {
-    self.shuffleButton.selected = !self.shuffleButton.selected;
-
-    if (self.shuffleButton.selected) {
-        [GVMusicPlayerController sharedInstance].shuffleMode = MPMusicShuffleModeSongs;
-    } else {
-        [GVMusicPlayerController sharedInstance].shuffleMode = MPMusicShuffleModeOff;
-    }
-}
-
-- (IBAction)repeatButtonPressed {
-    switch ([GVMusicPlayerController sharedInstance].repeatMode) {
-        case MPMusicRepeatModeAll:
-            // From all to one
-            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeOne;
-            break;
-
-        case MPMusicRepeatModeOne:
-            // From one to none
-            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeNone;
-            break;
-
-        case MPMusicRepeatModeNone:
-            // From none to all
-            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeAll;
-            break;
-
-        default:
-            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeAll;
-            break;
-    }
-
-    [self setCorrectRepeatButtomImage];
-}
+//- (IBAction)shuffleButtonPressed {
+//    self.shuffleButton.selected = !self.shuffleButton.selected;
+//
+//    if (self.shuffleButton.selected) {
+//        [GVMusicPlayerController sharedInstance].shuffleMode = MPMusicShuffleModeSongs;
+//    } else {
+//        [GVMusicPlayerController sharedInstance].shuffleMode = MPMusicShuffleModeOff;
+//    }
+//}
+//
+//- (IBAction)repeatButtonPressed {
+//    switch ([GVMusicPlayerController sharedInstance].repeatMode) {
+//        case MPMusicRepeatModeAll:
+//            // From all to one
+//            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeOne;
+//            break;
+//
+//        case MPMusicRepeatModeOne:
+//            // From one to none
+//            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeNone;
+//            break;
+//
+//        case MPMusicRepeatModeNone:
+//            // From none to all
+//            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeAll;
+//            break;
+//
+//        default:
+//            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeAll;
+//            break;
+//    }
+//
+//    [self setCorrectRepeatButtomImage];
+//}
 
 - (void)setCorrectRepeatButtomImage {
     NSString *imageName;
@@ -207,7 +208,7 @@
             break;
     }
 
-    [self.repeatButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+  //  [self.repeatButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
 }
 
 #pragma mark - AVMusicPlayerControllerDelegate
@@ -274,8 +275,6 @@
     
     [airplayVC playURL:url];
     
-    
-
 }
 
 @end

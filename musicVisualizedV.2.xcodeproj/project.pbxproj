@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1DA8A91CA5974F7F818625A7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE0477198B840419BEEB986 /* libPods.a */; };
+		2E086C7C1911A10300EFF372 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E086C7B1911A10300EFF372 /* CoreMedia.framework */; };
+		2E086C7E1911A10E00EFF372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E086C7D1911A10E00EFF372 /* AudioToolbox.framework */; };
 		2E2B894518D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E2B894418D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 */; };
 		2E52F9321911716400BFC4AB /* GVMusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52F9311911716400BFC4AB /* GVMusicPlayerController.m */; };
 		2E52F935191171C100BFC4AB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E52F934191171C100BFC4AB /* MainStoryboard.storyboard */; };
@@ -50,8 +52,6 @@
 		2E7A7B0C18D35F8E001892AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A7B0B18D35F8E001892AA /* QuartzCore.framework */; };
 		2E7A7B0E18D35F97001892AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A7B0D18D35F97001892AA /* AVFoundation.framework */; };
 		2E7A7B1718D364F6001892AA /* waterclear256.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7A7B1618D364F6001892AA /* waterclear256.png */; };
-		2E7A7BB218D39371001892AA /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7A7BAF18D39371001892AA /* NSData+Base64.m */; };
-		2E7A7BB318D39371001892AA /* UIEffectDesignerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7A7BB118D39371001892AA /* UIEffectDesignerView.m */; };
 		2E7A7BB518D393D8001892AA /* emitter.ped in Resources */ = {isa = PBXBuildFile; fileRef = 2E7A7BB418D393D8001892AA /* emitter.ped */; };
 		2E7A7BB718D39C52001892AA /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7A7BB618D39C52001892AA /* spark.png */; };
 		2E7F49501901C84C00CC3A32 /* IPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F494F1901C84C00CC3A32 /* IPhoneViewController.m */; };
@@ -73,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E086C7B1911A10300EFF372 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2E086C7D1911A10E00EFF372 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2E2B894418D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dreams - Fleetwood Mac (Psychemagik Remix).mp3"; sourceTree = "<group>"; };
 		2E52F9301911716400BFC4AB /* GVMusicPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVMusicPlayerController.h; sourceTree = "<group>"; };
 		2E52F9311911716400BFC4AB /* GVMusicPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVMusicPlayerController.m; sourceTree = "<group>"; };
@@ -124,10 +126,6 @@
 		2E7A7B0B18D35F8E001892AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2E7A7B0D18D35F97001892AA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2E7A7B1618D364F6001892AA /* waterclear256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterclear256.png; sourceTree = "<group>"; };
-		2E7A7BAE18D39371001892AA /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		2E7A7BAF18D39371001892AA /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		2E7A7BB018D39371001892AA /* UIEffectDesignerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIEffectDesignerView.h; sourceTree = "<group>"; };
-		2E7A7BB118D39371001892AA /* UIEffectDesignerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIEffectDesignerView.m; sourceTree = "<group>"; };
 		2E7A7BB418D393D8001892AA /* emitter.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emitter.ped; sourceTree = "<group>"; };
 		2E7A7BB618D39C52001892AA /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		2E7F494E1901C84C00CC3A32 /* IPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPhoneViewController.h; sourceTree = "<group>"; };
@@ -148,6 +146,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E086C7E1911A10E00EFF372 /* AudioToolbox.framework in Frameworks */,
+				2E086C7C1911A10300EFF372 /* CoreMedia.framework in Frameworks */,
 				2E7A7B0E18D35F97001892AA /* AVFoundation.framework in Frameworks */,
 				2E7A7B0C18D35F8E001892AA /* QuartzCore.framework in Frameworks */,
 				2E7A7B0A18D35F84001892AA /* MediaPlayer.framework in Frameworks */,
@@ -207,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				2E52F933191171B800BFC4AB /* Views */,
-				2E7A7BAD18D39371001892AA /* UIEffectDesignerView */,
 				2E7A7ACD18D35E18001892AA /* musicVisualizedV.2 */,
 				2E7A7B0F18D35FBE001892AA /* Resources (songs and png's) */,
 				2E7A7AEC18D35E18001892AA /* musicVisualizedV.2Tests */,
@@ -229,6 +228,8 @@
 		2E7A7AC618D35E18001892AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E086C7D1911A10E00EFF372 /* AudioToolbox.framework */,
+				2E086C7B1911A10300EFF372 /* CoreMedia.framework */,
 				2E7A7B0D18D35F97001892AA /* AVFoundation.framework */,
 				2E7A7B0B18D35F8E001892AA /* QuartzCore.framework */,
 				2E7A7B0918D35F83001892AA /* MediaPlayer.framework */,
@@ -338,17 +339,6 @@
 				2E7A7B0118D35EB9001892AA /* FISVisualizerView.mm */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		2E7A7BAD18D39371001892AA /* UIEffectDesignerView */ = {
-			isa = PBXGroup;
-			children = (
-				2E7A7BAE18D39371001892AA /* NSData+Base64.h */,
-				2E7A7BAF18D39371001892AA /* NSData+Base64.m */,
-				2E7A7BB018D39371001892AA /* UIEffectDesignerView.h */,
-				2E7A7BB118D39371001892AA /* UIEffectDesignerView.m */,
-			);
-			path = UIEffectDesignerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,7 +503,6 @@
 				2E52F9321911716400BFC4AB /* GVMusicPlayerController.m in Sources */,
 				2E7A7AFF18D35E53001892AA /* MeterTable.cpp in Sources */,
 				2E7F49531901C85E00CC3A32 /* AirplayViewController.m in Sources */,
-				2E7A7BB318D39371001892AA /* UIEffectDesignerView.m in Sources */,
 				2E7A7AD418D35E18001892AA /* main.m in Sources */,
 				2E52F959191173ED00BFC4AB /* ViewController.m in Sources */,
 				2E7F49501901C84C00CC3A32 /* IPhoneViewController.m in Sources */,
@@ -521,7 +510,6 @@
 				2E7A7AD818D35E18001892AA /* FISAppDelegate.m in Sources */,
 				2E7A7B0218D35EB9001892AA /* FISVisualizerView.mm in Sources */,
 				2E52F95C1911741700BFC4AB /* NSString+TimeToString.m in Sources */,
-				2E7A7BB218D39371001892AA /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

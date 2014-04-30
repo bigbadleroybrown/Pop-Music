@@ -178,23 +178,6 @@
                                             <action selector="repeatButtonPressed" destination="2" eventType="touchUpInside" id="ERe-23-mGb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PYZ-fG-25K">
-                                        <rect key="frame" x="256" y="54" width="44" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        <accessibility key="accessibilityConfiguration" label="Shuffle"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="Track_Shuffle_Off.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="Track_Shuffle_On.png"/>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="shuffleButtonPressed" destination="2" eventType="touchUpInside" id="1Ne-wm-BdN"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="ezI-Z2-WTX">
                                         <rect key="frame" x="87" y="56" width="147" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -218,13 +201,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="airplayButton" destination="RzX-DU-HB5" id="1Sa-Po-Kt0"/>
                         <outlet property="artistLabel" destination="THn-r1-QSB" id="4wE-B8-kxH"/>
                         <outlet property="chooseView" destination="Y74-ZW-c9j" id="24J-TL-vVc"/>
                         <outlet property="imageView" destination="Xqs-3f-soU" id="b5o-BN-Kzj"/>
                         <outlet property="playPauseButton" destination="tF8-VD-WTT" id="HIZ-Pc-7t0"/>
                         <outlet property="progressSlider" destination="Eh7-Yz-mpU" id="TJf-NI-ngP"/>
                         <outlet property="repeatButton" destination="RzX-DU-HB5" id="FRx-Xm-e2C"/>
-                        <outlet property="shuffleButton" destination="PYZ-fG-25K" id="oAj-ph-gTM"/>
                         <outlet property="songLabel" destination="vbc-lT-Avt" id="KiG-r0-g71"/>
                         <outlet property="trackCurrentPlaybackTimeLabel" destination="Uam-M6-sVH" id="FtE-Je-p3s"/>
                         <outlet property="trackLengthLabel" destination="dK5-HV-AJG" id="y2O-Ff-Bx5"/>
@@ -246,8 +229,6 @@
         <image name="Play_Similar_Music.png" width="147" height="32"/>
         <image name="Play_Similar_Music_Pressed.png" width="147" height="32"/>
         <image name="Track_Repeat_Off.png" width="20" height="18"/>
-        <image name="Track_Shuffle_Off.png" width="20" height="18"/>
-        <image name="Track_Shuffle_On.png" width="20" height="18"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
