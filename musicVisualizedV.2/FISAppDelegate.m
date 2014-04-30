@@ -30,16 +30,9 @@
 //
     
     // Override point for customization after application launch.
-    //self.window.backgroundColor = [UIColor whiteColor];
-    
-    self.vc = [[ViewController alloc] init]; //iphone VC
-    
-    [self.window setRootViewController:_vc]; // iphone vc
-    
-    [self.window makeKeyAndVisible];
-//
+
+
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     

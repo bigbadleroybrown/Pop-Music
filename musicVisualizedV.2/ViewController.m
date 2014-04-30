@@ -91,6 +91,9 @@
 - (IBAction)playButtonPressed {
     if ([GVMusicPlayerController sharedInstance].playbackState == MPMusicPlaybackStatePlaying) {
         [[GVMusicPlayerController sharedInstance] pause];
+        DataStore *dataStore = [DataStore sharedDataStore];
+        AirplayViewController *airplayVC = dataStore.airplayViewController;
+        [airplayVC playPause];
     } else {
         [[GVMusicPlayerController sharedInstance] play];
         DataStore *dataStore = [DataStore sharedDataStore];
