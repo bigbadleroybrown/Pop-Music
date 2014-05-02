@@ -10,6 +10,7 @@
 		1DA8A91CA5974F7F818625A7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE0477198B840419BEEB986 /* libPods.a */; };
 		2E086C7C1911A10300EFF372 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E086C7B1911A10300EFF372 /* CoreMedia.framework */; };
 		2E086C7E1911A10E00EFF372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E086C7D1911A10E00EFF372 /* AudioToolbox.framework */; };
+		2E086C841912D5A600EFF372 /* ColorSphere copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E086C831912D5A600EFF372 /* ColorSphere copy.png */; };
 		2E2B894518D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E2B894418D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 */; };
 		2E52F9321911716400BFC4AB /* GVMusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52F9311911716400BFC4AB /* GVMusicPlayerController.m */; };
 		2E52F935191171C100BFC4AB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E52F934191171C100BFC4AB /* MainStoryboard.storyboard */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		2E086C7B1911A10300EFF372 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2E086C7D1911A10E00EFF372 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		2E086C831912D5A600EFF372 /* ColorSphere copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ColorSphere copy.png"; sourceTree = "<group>"; };
 		2E2B894418D4CEE3006AD6C1 /* Dreams - Fleetwood Mac (Psychemagik Remix).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dreams - Fleetwood Mac (Psychemagik Remix).mp3"; sourceTree = "<group>"; };
 		2E52F9301911716400BFC4AB /* GVMusicPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVMusicPlayerController.h; sourceTree = "<group>"; };
 		2E52F9311911716400BFC4AB /* GVMusicPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVMusicPlayerController.m; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				2E7A7AFC18D35E29001892AA /* MeterTable */,
 				2E7A7B1018D35FE2001892AA /* Models */,
 				2E7A7ADF18D35E18001892AA /* Images.xcassets */,
+				2E086C831912D5A600EFF372 /* ColorSphere copy.png */,
 				2E52F936191171F100BFC4AB /* images */,
 				2E7A7ACE18D35E18001892AA /* Supporting Files */,
 			);
@@ -432,6 +435,7 @@
 				2E52F9441911726000BFC4AB /* Controls_Pause@2x.png in Resources */,
 				2E52F9531911728600BFC4AB /* Play_Similar_Music_Pressed.png in Resources */,
 				2E7A7AD218D35E18001892AA /* InfoPlist.strings in Resources */,
+				2E086C841912D5A600EFF372 /* ColorSphere copy.png in Resources */,
 				2E7A7B0718D35F72001892AA /* Default@2x.png in Resources */,
 				2E7A7B1718D364F6001892AA /* waterclear256.png in Resources */,
 				2E7A7BB518D393D8001892AA /* emitter.ped in Resources */,
@@ -630,6 +634,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "musicVisualizedV.2/musicVisualizedV.2-Prefix.pch";
 				INFOPLIST_FILE = "musicVisualizedV.2/musicVisualizedV.2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -644,6 +649,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "musicVisualizedV.2/musicVisualizedV.2-Prefix.pch";
 				INFOPLIST_FILE = "musicVisualizedV.2/musicVisualizedV.2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
