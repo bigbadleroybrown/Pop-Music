@@ -11,6 +11,7 @@
 #import "NSString+TimeToString.h"
 #import "AirplayViewController.h"
 #import "DataStore.h"
+#import "POP/POP.h"
 
 
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
@@ -25,13 +26,21 @@
 @property (weak, nonatomic) IBOutlet UIView *chooseView;
 //@property (weak, nonatomic) IBOutlet UIButton *repeatButton;
 //@property (weak, nonatomic) IBOutlet UIButton *shuffleButton;
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIImageView *centerView;
 @property (weak, nonatomic) IBOutlet UIButton *airplayButton;
 @property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic)UIImageView *launchImageView;
 @property BOOL panningProgress;
 @property BOOL panningVolume;
 @end
 
 @implementation ViewController
+
+{
+    BOOL _isBarHiding;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +49,8 @@
 
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timedJob) userInfo:nil repeats:YES];
     [self.timer fire];
+    [self configureBars];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,6 +60,7 @@
     // objects in memory.
     [super viewWillAppear:animated];
     [[GVMusicPlayerController sharedInstance] addDelegate:self];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -71,6 +83,7 @@
     [self setCorrectRepeatButtomImage];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -209,6 +222,63 @@
     }
 
   //  [self.repeatButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+}
+
+#pragma mark - Toggle Bars
+
+-(void)configureBars
+
+{
+    _isBarHiding = NO;
+    
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
+    [self.imageView addGestureRecognizer:tapGR];
+    
+}
+
+- (void)toggleBars {
+    
+    _isBarHiding = !_isBarHiding;
+    
+    POPSpringAnimation *anim = [POPSpringAnimation animation];
+    POPSpringAnimation *anim2 = [POPSpringAnimation animation];
+    
+    if (_isBarHiding)
+    {
+        anim.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
+        anim.toValue = @(self.view.bounds.size.height);
+        anim.springBounciness = 10.0;
+        anim.springSpeed = 6.0;
+        
+        anim2.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
+        anim2.toValue = @(self.view.bounds.size.height);
+        anim2.springBounciness = 10.0;
+        anim2.springSpeed = 6.0;
+    }
+    else
+    {
+        anim.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
+        anim.toValue = @(self.view.bounds.size.height);
+        anim.springBounciness = 10.0;
+        anim.springSpeed = 6.0;
+        
+        anim2.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
+        anim2.toValue = @(self.view.bounds.size.height);
+        anim2.springBounciness = 10.0;
+        anim2.springSpeed = 6.0;
+    }
+    
+    [self.topView pop_addAnimation:anim forKey:@"fadetop"];
+    [self.bottomView pop_addAnimation:anim2 forKey:@"fadebottom"];
+
+    
+}
+
+
+- (void)tapGestureHandler:(UITapGestureRecognizer *)tapGR {
+    [self toggleBars];
+    
+    NSLog(@"I was tapped");
 }
 
 #pragma mark - AVMusicPlayerControllerDelegate
