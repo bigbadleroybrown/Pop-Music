@@ -1,275 +1,280 @@
 //
-//  FISViewController.m
-//  musicVisualizedV.2
+//  ViewController.m
+//  Example
 //
-//  Created by Eugene Watson on 3/14/14.
-//  Copyright (c) 2014 Eugene Watson. All rights reserved.
+//  Created by Kevin Renskers on 03-10-12.
+//  Copyright (c) 2012 Gangverk. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "FISVisualizerView.h"
-#import <AVFoundation/AVFoundation.h>
+#import "GVMusicPlayerController.h"
+#import "NSString+TimeToString.h"
+#import "AirplayViewController.h"
+#import "DataStore.h"
 
-@interface ViewController ()
 
-@property (strong, nonatomic) UIView *backgroundView;
-@property (strong, nonatomic) UINavigationBar *navBar;
-@property (strong, nonatomic) UIToolbar *toolBar;
-@property (strong, nonatomic) NSArray *playItems;
-@property (strong, nonatomic) NSArray *pauseItems;
-@property (strong, nonatomic) UIBarButtonItem *playBBI;
-@property (strong, nonatomic) UIBarButtonItem *pauseBBI;
-@property (strong, nonatomic) UIBarButtonItem *nextBBI;
-@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
-@property (strong, nonatomic) FISVisualizerView *visualizer;
-@property (strong, nonatomic)   UISlider *colorSlider;
-
+@interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *songLabel;
+@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
+@property (weak, nonatomic) IBOutlet UISlider *progressSlider;
+@property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
+@property (weak, nonatomic) IBOutlet UILabel *trackCurrentPlaybackTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *trackLengthLabel;
+@property (weak, nonatomic) IBOutlet UIView *chooseView;
+//@property (weak, nonatomic) IBOutlet UIButton *repeatButton;
+//@property (weak, nonatomic) IBOutlet UIButton *shuffleButton;
+@property (weak, nonatomic) IBOutlet UIButton *airplayButton;
+@property (strong, nonatomic) NSTimer *timer;
+@property BOOL panningProgress;
+@property BOOL panningVolume;
 @end
 
 @implementation ViewController
 
-{
-    BOOL _isBarHide;
-    BOOL _isPlaying;
-    BOOL _canInsertItem;
-}
-
-- (void)viewDidLoad
-
-{
-
+- (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureBars];
-    
-    [self configureAudioSession];
-    
-    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame]; //creates the visualizer instance (view) that will fill parent view and adds it to the background view 
-    [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
-    [_backgroundView addSubview:_visualizer];
-    
-    [self configureAudioPlayer];
+
+    [self.view bringSubviewToFront:self.chooseView];
+
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timedJob) userInfo:nil repeats:YES];
+    [self.timer fire];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    // NOTE: add and remove the GVMusicPlayerController delegate in
+    // the viewWillAppear / viewDidDisappear methods, not in the
+    // viewDidLoad / viewDidUnload methods - it will result in dangling
+    // objects in memory.
+    [super viewWillAppear:animated];
+    [[GVMusicPlayerController sharedInstance] addDelegate:self];
+}
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated {
+    [[GVMusicPlayerController sharedInstance] removeDelegate:self];
+    [super viewDidDisappear:animated];
+}
 
-{
+- (void)timedJob {
+    if (!self.panningProgress) {
+        self.progressSlider.value = [GVMusicPlayerController sharedInstance].currentPlaybackTime;
+        self.trackCurrentPlaybackTimeLabel.text = [NSString stringFromTime:[GVMusicPlayerController sharedInstance].currentPlaybackTime];
+    }
+}
+
+#pragma mark - Catch remote control events, forward to the music player
+
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self toggleBars];
+//    self.shuffleButton.selected = ([GVMusicPlayerController sharedInstance].shuffleMode != MPMusicShuffleModeOff);
+    [self setCorrectRepeatButtomImage];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
 }
 
-
-- (void)configureBars
-
-{
-    [self.view setBackgroundColor:[UIColor blackColor]];
-    
-    CGRect frame = self.view.frame;
-
-    self.backgroundView = [[UIView alloc] initWithFrame:frame]; //defines the background view
-    [_backgroundView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
-    [_backgroundView setBackgroundColor:[UIColor blackColor]];
-    
-    [self.view addSubview:_backgroundView];
-    
-    // NavBar
-    self.navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, -44, frame.size.width, 44)];
-    [_navBar setBarStyle:UIBarStyleBlackTranslucent];
-    [_navBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    
-    UINavigationItem *navTitleItem = [[UINavigationItem alloc] initWithTitle:@"Pop Music"];
-    [_navBar pushNavigationItem:navTitleItem animated:NO];
-    
-    [self.view addSubview:_navBar];
-    
-    
-    //Slider
-//    
-//    self.colorSlider = [[UISlider alloc] initWithFrame:frame2];
-//    self.colorSlider.minimumValue = 0.0;
-//    self.colorSlider.maximumValue = 10.0;
-//    self.colorSlider.continuous = YES;
-//    self.colorSlider.value = 25.0;
-//    [self.colorSlider addTarget:self action:@selector(changeColors) forControlEvents:UIControlEventValueChanged];
-//    //[_toolBar addSubview:_colorSlider];
-    
-    
-    //[self.colorSlider setValue:0.5 animated:NO];
-    
-    // ToolBar
-    self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 320, frame.size.width, 44)];
-    [_toolBar setBarStyle:UIBarStyleBlackTranslucent];
-    [_toolBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    
-    
-    UIBarButtonItem *pickBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(pickSong)];
-    
-    self.playBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playPause)];
-    
-    self.pauseBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(playPause)];
-    
-    UIBarButtonItem *leftFlexBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *rightFlexBBI = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    self.playItems = [NSArray arrayWithObjects:pickBBI, leftFlexBBI, _playBBI, rightFlexBBI,nil];
-    self.pauseItems = [NSArray arrayWithObjects:pickBBI, leftFlexBBI, _pauseBBI, rightFlexBBI, nil];
-    
-    [_toolBar setItems:_playItems];
-    
-    [self.view addSubview:_toolBar];
-    //[self.view addSubview:_colorSlider];
-    
-    
-    _isBarHide = YES;
-    _isPlaying = NO;
-    _canInsertItem = YES;
-    
-    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
-    [_backgroundView addGestureRecognizer:tapGR];
+- (void)viewWillDisappear:(BOOL)animated {
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
+    [super viewWillDisappear:animated];
 }
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
 
-- (void)toggleBars
+- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
+    [[GVMusicPlayerController sharedInstance] remoteControlReceivedWithEvent:receivedEvent];
+}
 
-{
-    CGFloat navBarDis = -44;
-    CGFloat toolBarDis = 44;
-    if (_isBarHide ) {
-        navBarDis = -navBarDis;
-        toolBarDis = -toolBarDis;
+#pragma mark - IBActions
+
+- (IBAction)playButtonPressed {
+    if ([GVMusicPlayerController sharedInstance].playbackState == MPMusicPlaybackStatePlaying) {
+        [[GVMusicPlayerController sharedInstance] pause];
+        DataStore *dataStore = [DataStore sharedDataStore];
+        AirplayViewController *airplayVC = dataStore.airplayViewController;
+        [airplayVC playPause];
+    } else {
+        [[GVMusicPlayerController sharedInstance] play];
+        DataStore *dataStore = [DataStore sharedDataStore];
+        AirplayViewController *airplayVC = dataStore.airplayViewController;
+        [airplayVC playPause];
     }
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        CGPoint navBarCenter = _navBar.center;
-        navBarCenter.y += navBarDis;
-        [_navBar setCenter:navBarCenter];
-        
-        CGPoint toolBarCenter = _toolBar.center;
-        toolBarCenter.y += toolBarDis;
-        [_toolBar setCenter:toolBarCenter];
-    }];
-    
-    _isBarHide = !_isBarHide;
 }
 
-- (void)tapGestureHandler:(UITapGestureRecognizer *)tapGR
-
-{
-    [self toggleBars];
+- (IBAction)prevButtonPressed {
+    [[GVMusicPlayerController sharedInstance] skipToPreviousItem];
 }
 
-#pragma mark - Music control
-
-- (void)playPause
-{
-    if (_isPlaying)
-    {
-        // Pause audio here
-        [_audioPlayer pause];
-        [_toolBar setItems:_playItems];  // toggle play/pause button
-    }
-    else
-    {
-        // Play audio here
-        [_audioPlayer play];
-        [_toolBar setItems:_pauseItems]; // toggle play/pause button
-    }
-    _isPlaying = !_isPlaying;
+- (IBAction)nextButtonPressed {
+    [[GVMusicPlayerController sharedInstance] skipToNextItem];
 }
 
-- (void)playURL:(NSURL *)url
-
-{
-    if (_isPlaying) {
-        
-    [self playPause]; // Pause previous audio player
-    
-    }
-    
-    // Add audioPlayer configurations here
-    
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    
-    [_audioPlayer setNumberOfLoops:-1];
-    [_audioPlayer setMeteringEnabled:YES];
-    [_visualizer setAudioPlayer:_audioPlayer];
-    
-    [self playPause];   // Play
-}
-
-#pragma mark - Media (song) Picker
-
-- (void)pickSong
-{
-    
+- (IBAction)chooseButtonPressed {
+#if !(TARGET_IPHONE_SIMULATOR)
     MPMediaPickerController *picker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeAnyAudio];
-    [picker setDelegate:self];
-    [picker setAllowsPickingMultipleItems: NO];
+    picker.delegate = self;
+    picker.allowsPickingMultipleItems = NO;
     [self presentViewController:picker animated:YES completion:NULL];
     
+    
+#endif
 }
 
-#pragma mark - Media Picker Delegate
+- (IBAction)playEverythingButtonPressed {
+#if !(TARGET_IPHONE_SIMULATOR)
+    MPMediaQuery *query = [MPMediaQuery songsQuery];
+    [[GVMusicPlayerController sharedInstance] setQueueWithQuery:query];
+    [[GVMusicPlayerController sharedInstance] play];
+#endif
+}
 
-- (void)mediaPicker:(MPMediaPickerController *) mediaPicker didPickMediaItems:(MPMediaItemCollection *) collection
-{
-    
-   
-    [self dismissViewControllerAnimated:YES completion:NULL];
-    
+- (IBAction)volumeChanged:(UISlider *)sender {
+    self.panningVolume = YES;
+    [GVMusicPlayerController sharedInstance].volume = sender.value;
+}
 
+- (IBAction)volumeEnd {
+    self.panningVolume = NO;
+}
+
+- (IBAction)progressChanged:(UISlider *)sender {
+    // While dragging the progress slider around, we change the time label,
+    // but we're not actually changing the playback time yet.
+    self.panningProgress = YES;
+    self.trackCurrentPlaybackTimeLabel.text = [NSString stringFromTime:sender.value];
+}
+
+- (IBAction)progressEnd {
+    // Only when dragging is done, we change the playback time.
+    [GVMusicPlayerController sharedInstance].currentPlaybackTime = self.progressSlider.value;
+    self.panningProgress = NO;
+}
+
+//- (IBAction)shuffleButtonPressed {
+//    self.shuffleButton.selected = !self.shuffleButton.selected;
+//
+//    if (self.shuffleButton.selected) {
+//        [GVMusicPlayerController sharedInstance].shuffleMode = MPMusicShuffleModeSongs;
+//    } else {
+//        [GVMusicPlayerController sharedInstance].shuffleMode = MPMusicShuffleModeOff;
+//    }
+//}
+//
+//- (IBAction)repeatButtonPressed {
+//    switch ([GVMusicPlayerController sharedInstance].repeatMode) {
+//        case MPMusicRepeatModeAll:
+//            // From all to one
+//            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeOne;
+//            break;
+//
+//        case MPMusicRepeatModeOne:
+//            // From one to none
+//            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeNone;
+//            break;
+//
+//        case MPMusicRepeatModeNone:
+//            // From none to all
+//            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeAll;
+//            break;
+//
+//        default:
+//            [GVMusicPlayerController sharedInstance].repeatMode = MPMusicRepeatModeAll;
+//            break;
+//    }
+//
+//    [self setCorrectRepeatButtomImage];
+//}
+
+- (void)setCorrectRepeatButtomImage {
+    NSString *imageName;
+
+    switch ([GVMusicPlayerController sharedInstance].repeatMode) {
+        case MPMusicRepeatModeAll:
+            imageName = @"Track_Repeat_On";
+            break;
+
+        case MPMusicRepeatModeOne:
+            imageName = @"Track_Repeat_On_Track";
+            break;
+
+        case MPMusicRepeatModeNone:
+            imageName = @"Track_Repeat_Off";
+            break;
+
+        default:
+            imageName = @"Track_Repeat_Off";
+            break;
+    }
+
+  //  [self.repeatButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+}
+
+#pragma mark - AVMusicPlayerControllerDelegate
+
+- (void)musicPlayer:(GVMusicPlayerController *)musicPlayer playbackStateChanged:(MPMusicPlaybackState)playbackState previousPlaybackState:(MPMusicPlaybackState)previousPlaybackState {
+    self.playPauseButton.selected = (playbackState == MPMusicPlaybackStatePlaying);
+}
+
+- (void)musicPlayer:(GVMusicPlayerController *)musicPlayer trackDidChange:(MPMediaItem *)nowPlayingItem previousTrack:(MPMediaItem *)previousTrack {
+    if (!nowPlayingItem) {
+        self.chooseView.hidden = NO;
+        return;
+    }
+
+    self.chooseView.hidden = YES;
+
+    // Time labels
+    NSTimeInterval trackLength = [[nowPlayingItem valueForProperty:MPMediaItemPropertyPlaybackDuration] doubleValue];
+    self.trackLengthLabel.text = [NSString stringFromTime:trackLength];
+    self.progressSlider.value = 0;
+    self.progressSlider.maximumValue = trackLength;
+
+    // Labels
+    self.songLabel.text = [nowPlayingItem valueForProperty:MPMediaItemPropertyTitle];
+    self.artistLabel.text = [nowPlayingItem valueForProperty:MPMediaItemPropertyArtist];
+
+    // Artwork
+    MPMediaItemArtwork *artwork = [nowPlayingItem valueForProperty:MPMediaItemPropertyArtwork];
+    if (artwork != nil) {
+        self.imageView.image = [artwork imageWithSize:self.imageView.frame.size];
+    }
+
+    NSLog(@"Proof that this code is being called, even in the background!");
+}
+
+- (void)musicPlayer:(GVMusicPlayerController *)musicPlayer endOfQueueReached:(MPMediaItem *)lastTrack {
+    NSLog(@"End of queue, but last track was %@", [lastTrack valueForProperty:MPMediaItemPropertyTitle]);
+}
+
+- (void)musicPlayer:(GVMusicPlayerController *)musicPlayer volumeChanged:(float)volume {
+    if (!self.panningVolume) {
+        self.volumeSlider.value = volume;
+    }
+}
+
+#pragma mark - MPMediaPickerControllerDelegate
+
+- (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
+    [mediaPicker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)collection {
+    [[GVMusicPlayerController sharedInstance] setQueueWithItemCollection:collection];
+    [[GVMusicPlayerController sharedInstance] play];
+    [mediaPicker dismissViewControllerAnimated:YES completion:nil];
+    
     MPMediaItem *item = [[collection items] objectAtIndex:0];
-    NSString *title = [item valueForProperty:MPMediaItemPropertyTitle];
-    [_navBar.topItem setTitle:title];
     
-    // get a URL reference to the selected item
     NSURL *url = [item valueForProperty:MPMediaItemPropertyAssetURL];
     
-    // pass the URL to playURL
-    [self playURL:url];
-}
-
-- (void)mediaPickerDidCancel:(MPMediaPickerController *) mediaPicker
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-#pragma mark - Configure AV Audio Player
-
--(void)configureAudioPlayer
-{
-    NSURL *audioFile = [[NSBundle mainBundle] URLForResource:@"Dreams - Fleetwood Mac (Psychemagik Remix)" withExtension:@"mp3"];
-    NSError *error;
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFile error:&error];
-    if (error) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    [_audioPlayer setNumberOfLoops:-1];
-    [_audioPlayer setMeteringEnabled:YES];
-    [_visualizer setAudioPlayer:_audioPlayer];
-}
-
--(void)configureAudioSession
-{
-    NSError *error;
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+    DataStore *dataStore = [DataStore sharedDataStore];
     
-    if (error) {
-        NSLog(@"Error setting Category: %@", [error description]);
-    }
-}
-
--(void)changeColors
-{
-    //self.visualizer.cell.color = [[UIColor redColor] CGColor];
+    AirplayViewController *airplayVC = dataStore.airplayViewController;
     
-    //    CGFloat hue = ( arc4random() % 256 / 256.0 );
-    //    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;
-    //    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;
-    //    self.visualizer.cell.color = [[UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1] CGColor];
-    //    NSLog(@"%f",self.colorSlider.value);
+    [airplayVC playURL:url];
     
 }
-
 
 @end

@@ -11,10 +11,14 @@
 #import "DataStore.h"
 #import <FontAwesomeKit.h>
 
+
+
 @interface IphoneViewController ()
 
 @property (strong, nonatomic) UINavigationBar *navBar;
 @property (strong, nonatomic) UIButton *playPauseButton;
+@property (strong, nonatomic) MPVolumeView *volumeView;
+
 
 -(void)playButtonTapped;
 
@@ -26,6 +30,8 @@
 {
     BOOL _isPlaying;
 }
+
+
 
 - (void)viewDidLoad
 {
@@ -48,18 +54,24 @@
     [pickSong setAttributedTitle:[musicSearch attributedString] forState:UIControlStateNormal];
     
     
-    // NavBar -NOT WORKING
+
     CGRect frame = self.view.frame;
-    _navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, -44, frame.size.width, 44)];
-    [_navBar setBarStyle:UIBarStyleBlackTranslucent];
-    [_navBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    self.navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 44, frame.size.width, frame.size.height)];//44
+    [self.navBar setBarStyle:UIBarStyleBlackTranslucent];
+    [self.navBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     
     UINavigationItem *navTitleItem = [[UINavigationItem alloc] initWithTitle:@"Pop Music"];
-    [_navBar pushNavigationItem:navTitleItem animated:NO];
+    [self.navBar pushNavigationItem:navTitleItem animated:NO];
     
-    [self.view addSubview:_navBar];
+    MPVolumeView *volumeView = [[MPVolumeView alloc]init];
+
+    
+    [self.view setBackgroundColor:[UIColor blackColor]];
+    
+    [self.view addSubview:self.navBar];
     [self.view addSubview:pickSong];
     [self.view addSubview:self.playPauseButton];
+    [self.view addSubview:volumeView];
     
     
     
@@ -153,6 +165,10 @@
 }
 
 
+
+
+
+
 /*
 #pragma mark - Navigation
 
@@ -163,6 +179,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 @end
 

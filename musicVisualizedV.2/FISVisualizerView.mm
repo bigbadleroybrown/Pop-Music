@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MeterTable.h"
 #import <AVFoundation/AVFoundation.h>
-#import "UIEffectDesignerView.h"
 #import "ViewController.h"
 
 
