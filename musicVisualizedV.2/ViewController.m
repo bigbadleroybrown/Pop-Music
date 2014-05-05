@@ -31,7 +31,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *centerView;
 @property (weak, nonatomic) IBOutlet UIButton *airplayButton;
 @property (strong, nonatomic) NSTimer *timer;
-@property (strong, nonatomic)UIImageView *launchImageView;
 @property BOOL panningProgress;
 @property BOOL panningVolume;
 @end
@@ -232,8 +231,9 @@
     _isBarHiding = NO;
     
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
+    self.imageView.userInteractionEnabled = YES;
     [self.imageView addGestureRecognizer:tapGR];
-    
+
 }
 
 - (void)toggleBars {
@@ -245,13 +245,13 @@
     
     if (_isBarHiding)
     {
-        anim.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
-        anim.toValue = @(self.view.bounds.size.height);
+        anim.property = [POPAnimatableProperty propertyWithName:kPOPLayerRotationY];
+        anim.toValue = @(self.view.bounds.size.width);
         anim.springBounciness = 10.0;
         anim.springSpeed = 6.0;
         
         anim2.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
-        anim2.toValue = @(self.view.bounds.size.height);
+        anim2.toValue = @(self.view.bounds.size.width);
         anim2.springBounciness = 10.0;
         anim2.springSpeed = 6.0;
     }
@@ -273,13 +273,12 @@
 
     
 }
-
-
 - (void)tapGestureHandler:(UITapGestureRecognizer *)tapGR {
     [self toggleBars];
     
     NSLog(@"I was tapped");
 }
+
 
 #pragma mark - AVMusicPlayerControllerDelegate
 
