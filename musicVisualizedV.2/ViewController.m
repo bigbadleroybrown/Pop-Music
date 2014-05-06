@@ -48,7 +48,7 @@
 
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timedJob) userInfo:nil repeats:YES];
     [self.timer fire];
-    [self configureBars];
+    
     
 }
 
@@ -82,6 +82,7 @@
     [self setCorrectRepeatButtomImage];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
+    [self configureBars];
 
 }
 
@@ -228,7 +229,7 @@
 -(void)configureBars
 
 {
-    _isBarHiding = NO;
+    _isBarHiding = YES;
     
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
     self.imageView.userInteractionEnabled = YES;
@@ -237,39 +238,29 @@
 }
 
 - (void)toggleBars {
+  
+    
+    CGFloat topBarDis = 150;
+    CGFloat bottomBarDis = -150;
+    
+    if(_isBarHiding ) {
+        topBarDis = -topBarDis;
+        bottomBarDis = -bottomBarDis;
+    }
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        CGPoint topBarCenter = self.topView.center;
+        topBarCenter.y += topBarDis;
+        [self.topView setCenter:topBarCenter];
+        
+        
+        CGPoint bottomBarCenter = self.bottomView.center;
+        bottomBarCenter.y +=bottomBarDis;
+        [self.bottomView setCenter:bottomBarCenter];
+    }];
     
     _isBarHiding = !_isBarHiding;
-    
-    POPSpringAnimation *anim = [POPSpringAnimation animation];
-    POPSpringAnimation *anim2 = [POPSpringAnimation animation];
-    
-    if (_isBarHiding)
-    {
-        anim.property = [POPAnimatableProperty propertyWithName:kPOPLayerRotationY];
-        anim.toValue = @(self.view.bounds.size.width);
-        anim.springBounciness = 10.0;
-        anim.springSpeed = 6.0;
-        
-        anim2.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
-        anim2.toValue = @(self.view.bounds.size.width);
-        anim2.springBounciness = 10.0;
-        anim2.springSpeed = 6.0;
-    }
-    else
-    {
-        anim.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
-        anim.toValue = @(self.view.bounds.size.height);
-        anim.springBounciness = 10.0;
-        anim.springSpeed = 6.0;
-        
-        anim2.property = [POPAnimatableProperty propertyWithName:kPOPLayerPositionY];
-        anim2.toValue = @(self.view.bounds.size.height);
-        anim2.springBounciness = 10.0;
-        anim2.springSpeed = 6.0;
-    }
-    
-    [self.topView pop_addAnimation:anim forKey:@"fadetop"];
-    [self.bottomView pop_addAnimation:anim2 forKey:@"fadebottom"];
 
     
 }
