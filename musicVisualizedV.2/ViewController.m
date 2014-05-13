@@ -12,6 +12,7 @@
 #import "AirplayViewController.h"
 #import "DataStore.h"
 #import "UIViewController+AGBlurTransition.h"
+#import "FBShimmeringView.h"
 
 
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 @property (weak, nonatomic) IBOutlet UILabel *trackCurrentPlaybackTimeLabel;
+@property (weak, nonatomic) IBOutlet UIView *shimmerViewController;
 @property (weak, nonatomic) IBOutlet UILabel *trackLengthLabel;
 @property (weak, nonatomic) IBOutlet UIView *chooseView;
 //@property (weak, nonatomic) IBOutlet UIButton *repeatButton;
@@ -49,8 +51,7 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timedJob) userInfo:nil repeats:YES];
     [self.timer fire];
     
-    //[self.navigationController setNavigationBarHidden:YES];
-    
+    [self setupShimmerView];
     
 }
 
@@ -336,6 +337,25 @@
     
     [airplayVC playURL:url];
     
+}
+
+-(void)setupShimmerView
+{
+    
+    FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.view.bounds];
+    shimmeringView.shimmeringOpacity = 0.2;
+    
+    [self.shimmerViewController addSubview:shimmeringView];
+    self.shimmerViewController.backgroundColor = [UIColor clearColor];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:shimmeringView.bounds];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = NSLocalizedString(@"Pop Music", nil);
+    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:60.0];
+    titleLabel.textColor = [UIColor blackColor];
+    shimmeringView.contentView = titleLabel;
+    
+    shimmeringView.shimmering = YES;
 }
 
 @end

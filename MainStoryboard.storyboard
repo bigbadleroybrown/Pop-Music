@@ -57,6 +57,11 @@
                                             <action selector="chooseButtonPressed" destination="2" eventType="touchUpInside" id="SP2-iS-5eS"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" id="mE3-RJ-5yX">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="281"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -196,6 +201,7 @@
                         <outlet property="imageView" destination="Xqs-3f-soU" id="b5o-BN-Kzj"/>
                         <outlet property="playPauseButton" destination="tF8-VD-WTT" id="HIZ-Pc-7t0"/>
                         <outlet property="progressSlider" destination="Eh7-Yz-mpU" id="TJf-NI-ngP"/>
+                        <outlet property="shimmerViewController" destination="mE3-RJ-5yX" id="SSE-9N-xkj"/>
                         <outlet property="songLabel" destination="vbc-lT-Avt" id="KiG-r0-g71"/>
                         <outlet property="topView" destination="zy3-f0-51K" id="Fc1-Ak-MhO"/>
                         <outlet property="trackCurrentPlaybackTimeLabel" destination="Uam-M6-sVH" id="FtE-Je-p3s"/>
