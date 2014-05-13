@@ -113,9 +113,9 @@
         self.secondWindow.hidden = NO;
         
         airplayDataStore.airplayViewController = airplayVC;
+        
+        
     }
     
 }
-// in IBAction for big ass play button
-//[self.dataStore.airplayVC playpause]
 @end

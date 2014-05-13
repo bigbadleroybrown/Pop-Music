@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "ViewController.h"
+#import "GVMusicPlayerController.h"
 
 @interface FISVisualizerView : UIView
 
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 @property CGPoint currentLocation;
 @property (strong, nonatomic) CAEmitterCell *cell;
+
+
 
 
 @end

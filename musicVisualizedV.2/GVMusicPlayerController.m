@@ -33,6 +33,7 @@
 @interface GVMusicPlayerController () <AVAudioSessionDelegate>
 @property (copy, nonatomic) NSArray *delegates;
 @property (strong, nonatomic) AVPlayer *player;
+
 @property (strong, nonatomic) NSArray *originalQueue;
 @property (strong, nonatomic, readwrite) NSArray *queue;
 @property (strong, nonatomic, readwrite) MPMediaItem *nowPlayingItem;
@@ -181,7 +182,7 @@ void audioRouteChangeListenerCallback (void *inUserData, AudioSessionPropertyID 
                     }
                 }
             }
-            NSLog(@"GVMusicPlayerController: end of queue reached");
+
             [self stop];
         }
     }

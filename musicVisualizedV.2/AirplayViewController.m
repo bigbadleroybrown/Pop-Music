@@ -9,6 +9,7 @@
 #import "AirplayViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "FISVisualizerView.h"
+#import "ViewController.h"
 
 
 @interface AirplayViewController ()
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) UIView *backgroundView;
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 @property (strong, nonatomic) FISVisualizerView *visualizer;
+@property (strong, nonatomic) GVMusicPlayerController *musicPlayer;
 
 
 @end
@@ -37,11 +39,10 @@
     [self configureAudioSession];
     [self configureAirplayView];
     
-    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame];//was self.view.frame
+    self.visualizer = [[FISVisualizerView alloc] initWithFrame:self.view.frame];
     [_visualizer setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     [_backgroundView addSubview:_visualizer];
-    
-    //[self configureAudioPlayer];
+
     
 }
 
@@ -102,20 +103,6 @@
 
 
 #pragma mark - Configure AV Audio Player
-
-//-(void)configureAudioPlayer
-//
-//{
-//    NSURL *audioFile = [[NSBundle mainBundle] URLForResource:@"Dreams - Fleetwood Mac (Psychemagik Remix)" withExtension:@"mp3"];
-//    NSError *error;
-//    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFile error:&error];
-//    if (error) {
-//        NSLog(@"%@", [error localizedDescription]);
-//    }
-//    [_audioPlayer setNumberOfLoops:-1];
-//    [_audioPlayer setMeteringEnabled:YES];
-//    [_visualizer setAudioPlayer:_audioPlayer];
-//}
 
 -(void)configureAudioSession
 

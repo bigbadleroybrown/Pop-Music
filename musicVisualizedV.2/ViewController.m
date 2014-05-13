@@ -15,7 +15,6 @@
 #import "FBShimmeringView.h"
 
 
-
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *songLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
@@ -34,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *centerView;
 @property (weak, nonatomic) IBOutlet UIButton *airplayButton;
 @property (strong, nonatomic) NSTimer *timer;
+
 @property BOOL panningProgress;
 @property BOOL panningVolume;
 @end

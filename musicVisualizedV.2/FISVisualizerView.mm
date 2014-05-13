@@ -10,17 +10,19 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MeterTable.h"
 #import <AVFoundation/AVFoundation.h>
-#import "ViewController.h"
+
 
 
 @implementation FISVisualizerView
 
 {
     CAEmitterLayer *emitterLayer;//instance variable to hold CAEmitterLayer
+    
     MeterTable meterTable;
 }
 
 + (Class)layerClass
+
 {
     return [CAEmitterLayer class];//overides the default layer class to allow this view to act as a particle emitter
 }
@@ -124,6 +126,8 @@
     
     //Particles are created and destroyed at the same rate as a screen refresh. That means that every time the screen is redrawn, a new set of particles is created and the previous set is destroyed. Since new particles are always created with a size calculated from the audio-levels at that moment, the particles appear to pulse with the music.
 }
+
+    
 
 
 @end
