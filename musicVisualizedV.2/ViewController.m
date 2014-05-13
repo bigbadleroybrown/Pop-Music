@@ -15,6 +15,7 @@
 #import "FBShimmeringView.h"
 
 
+
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *songLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
@@ -108,14 +109,14 @@
 - (IBAction)playButtonPressed {
     if ([GVMusicPlayerController sharedInstance].playbackState == MPMusicPlaybackStatePlaying) {
         [[GVMusicPlayerController sharedInstance] pause];
-//        DataStore *dataStore = [DataStore sharedDataStore];
-//        AirplayViewController *airplayVC = dataStore.airplayViewController;
-//        [airplayVC playPause];
+        DataStore *dataStore = [DataStore sharedDataStore];
+        AirplayViewController *airplayVC = dataStore.airplayViewController;
+        [airplayVC playPause];
     } else {
         [[GVMusicPlayerController sharedInstance] play];
-//        DataStore *dataStore = [DataStore sharedDataStore];
-//        AirplayViewController *airplayVC = dataStore.airplayViewController;
-//        [airplayVC playPause];
+        DataStore *dataStore = [DataStore sharedDataStore];
+        AirplayViewController *airplayVC = dataStore.airplayViewController;
+        [airplayVC playPause];
     }
 }
 
