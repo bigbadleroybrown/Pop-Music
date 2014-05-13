@@ -1,5 +1,5 @@
 PODS:
-  - ABCustomUINavigationController (1.0)
+  - AGBlurTransition (0.0.1)
   - FontAwesomeKit (2.1.5):
     - FontAwesomeKit/Core
     - FontAwesomeKit/FontAwesome
@@ -19,13 +19,13 @@ PODS:
   - Shimmer (1.0.1)
 
 DEPENDENCIES:
-  - ABCustomUINavigationController
+  - AGBlurTransition
   - FontAwesomeKit (~> 2.1.0)
   - pop (~> 1.0)
   - Shimmer (~> 1.0)
 
 SPEC CHECKSUMS:
-  ABCustomUINavigationController: e9dc86167c6d9835fa4a8a1973867176648b237d
+  AGBlurTransition: 3aa0253bf459e5aa7d3d79e43483ed67efe1acec
   FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
   pop: 63a4f5e8942077fed2efe195036ecc572c71c48c
   Shimmer: a1b92685f04ae7363e655f636a41a276dbb1507e

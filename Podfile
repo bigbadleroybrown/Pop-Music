@@ -6,4 +6,4 @@ pod 'pop', '~> 1.0'
 
 pod 'Shimmer', '~> 1.0'
 
-pod 'ABCustomUINavigationController'
+pod 'AGBlurTransition'

@@ -11,7 +11,7 @@
 #import "NSString+TimeToString.h"
 #import "AirplayViewController.h"
 #import "DataStore.h"
-#import "POP/POP.h"
+#import "UIViewController+AGBlurTransition.h"
 
 
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
@@ -49,6 +49,7 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timedJob) userInfo:nil repeats:YES];
     [self.timer fire];
     
+    [self.navigationController setNavigationBarHidden:YES];
     
 }
 
@@ -105,14 +106,14 @@
 - (IBAction)playButtonPressed {
     if ([GVMusicPlayerController sharedInstance].playbackState == MPMusicPlaybackStatePlaying) {
         [[GVMusicPlayerController sharedInstance] pause];
-        DataStore *dataStore = [DataStore sharedDataStore];
-        AirplayViewController *airplayVC = dataStore.airplayViewController;
-        [airplayVC playPause];
+//        DataStore *dataStore = [DataStore sharedDataStore];
+//        AirplayViewController *airplayVC = dataStore.airplayViewController;
+//        [airplayVC playPause];
     } else {
         [[GVMusicPlayerController sharedInstance] play];
-        DataStore *dataStore = [DataStore sharedDataStore];
-        AirplayViewController *airplayVC = dataStore.airplayViewController;
-        [airplayVC playPause];
+//        DataStore *dataStore = [DataStore sharedDataStore];
+//        AirplayViewController *airplayVC = dataStore.airplayViewController;
+//        [airplayVC playPause];
     }
 }
 
@@ -125,22 +126,21 @@
 }
 
 - (IBAction)chooseButtonPressed {
-#if !(TARGET_IPHONE_SIMULATOR)
+    
     MPMediaPickerController *picker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeAnyAudio];
     picker.delegate = self;
-    picker.allowsPickingMultipleItems = NO;
+    picker.allowsPickingMultipleItems = YES;
+    picker.transitioningDelegate = self.AG_blurTransitionDelegate;
     [self presentViewController:picker animated:YES completion:NULL];
-    
-    
-#endif
+
 }
 
 - (IBAction)playEverythingButtonPressed {
-#if !(TARGET_IPHONE_SIMULATOR)
+
     MPMediaQuery *query = [MPMediaQuery songsQuery];
     [[GVMusicPlayerController sharedInstance] setQueueWithQuery:query];
     [[GVMusicPlayerController sharedInstance] play];
-#endif
+
 }
 
 - (IBAction)volumeChanged:(UISlider *)sender {

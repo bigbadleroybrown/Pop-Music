@@ -409,6 +409,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Eugene Watson";
 				TargetAttributes = {
+					2E7A7AC318D35E18001892AA = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					2E7A7AE418D35E18001892AA = {
 						TestTargetID = 2E7A7AC318D35E18001892AA;
 					};
