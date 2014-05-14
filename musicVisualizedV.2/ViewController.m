@@ -13,6 +13,7 @@
 #import "DataStore.h"
 #import "UIViewController+AGBlurTransition.h"
 #import "FBShimmeringView.h"
+#import "FISAppDelegate.h"
 
 
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
@@ -33,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *centerView;
 @property (weak, nonatomic) IBOutlet UIButton *airplayButton;
 @property (strong, nonatomic) NSTimer *timer;
+
 
 @property BOOL panningProgress;
 @property BOOL panningVolume;
@@ -357,6 +359,15 @@
     shimmeringView.contentView = titleLabel;
     
     shimmeringView.shimmering = YES;
+}
+
+
+-(void)checkAirplayStatus
+{
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [delegate isAirplayActive];
+    
 }
 
 @end

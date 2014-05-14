@@ -16,13 +16,15 @@
 
 @interface AppDelegate ()
 
-//@property (strong, nonatomic) IphoneViewController *vc;
 @property (strong, nonatomic) UIWindow *secondWindow;
-@property (strong, nonatomic) ViewController *vc;
+@property (strong, nonatomic) ViewController *viewController;
+
 
 @end
 
 @implementation AppDelegate
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -94,7 +96,7 @@
     
     UIScreen *newScreen = [aNotification object];
     CGRect screenBounds = newScreen.bounds;
-    
+    self.isAirplayActive=YES;
     DataStore *airplayDataStore = [DataStore sharedDataStore];
     
     

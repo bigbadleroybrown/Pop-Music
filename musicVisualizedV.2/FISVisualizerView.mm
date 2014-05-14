@@ -117,7 +117,7 @@
         //This is the most important part. As the level value is decreased the, the musics effect on the scale also falls.
         
         float level = meterTable.ValueAt(power);
-        scale = level *2;
+        scale = level *1;
     }
     
     //scale of the emitter’s particles is set to the new scale value. (If _audioPlayer was not playing, this will be the default scale of 0.5; otherwise, it will be some value based on the current audio levels.

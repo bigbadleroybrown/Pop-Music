@@ -53,6 +53,7 @@
     return instance;
 }
 
+
 void audioRouteChangeListenerCallback (void *inUserData, AudioSessionPropertyID inPropertyID, UInt32 inPropertyValueSize, const void *inPropertyValue) {
     if (inPropertyID != kAudioSessionProperty_AudioRouteChange) return;
 
@@ -101,10 +102,10 @@ void audioRouteChangeListenerCallback (void *inUserData, AudioSessionPropertyID 
         if (!success){
             NSLog(@"setActive error %@", sessionError);
         }
-        [audioSession setDelegate:self];
+        //[audioSession setDelegate:self];
 
         // Handle unplugging of headphones
-        AudioSessionAddPropertyListener (kAudioSessionProperty_AudioRouteChange, audioRouteChangeListenerCallback, (__bridge void*)self);
+       // AudioSessionAddPropertyListener (kAudioSessionProperty_AudioRouteChange, audioRouteChangeListenerCallback, (__bridge void*)self);
 
         // Listen for volume changes
         [[MPMusicPlayerController iPodMusicPlayer] beginGeneratingPlaybackNotifications];
@@ -182,7 +183,7 @@ void audioRouteChangeListenerCallback (void *inUserData, AudioSessionPropertyID 
                     }
                 }
             }
-
+            NSLog(@"GVMusicPlayerController: end of queue reached");
             [self stop];
         }
     }

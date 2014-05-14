@@ -31,6 +31,7 @@
 @property (nonatomic) BOOL updateNowPlayingCenter; // default YES
 @property (nonatomic, readonly) NSArray *queue;
 @property (nonatomic) BOOL shouldReturnToBeginningWhenSkippingToPreviousItem; // default YES
+@property (nonatomic) BOOL showsVolumeSlider;
 
 + (GVMusicPlayerController *)sharedInstance;
 
