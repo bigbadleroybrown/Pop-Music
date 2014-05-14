@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  Example
+//  musicVisualizedV.2
 //
-//  Created by Kevin Renskers on 03-10-12.
-//  Copyright (c) 2012 Gangverk. All rights reserved.
+//  Created by Eugene Watson on 3/14/14.
+//  Copyright (c) 2014 Eugene Watson. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -109,17 +109,21 @@
 #pragma mark - IBActions
 
 - (IBAction)playButtonPressed {
-    if ([GVMusicPlayerController sharedInstance].playbackState == MPMusicPlaybackStatePlaying) {
-        [[GVMusicPlayerController sharedInstance] pause];
-        DataStore *dataStore = [DataStore sharedDataStore];
-        AirplayViewController *airplayVC = dataStore.airplayViewController;
-        [airplayVC playPause];
-    } else {
-        [[GVMusicPlayerController sharedInstance] play];
-        DataStore *dataStore = [DataStore sharedDataStore];
-        AirplayViewController *airplayVC = dataStore.airplayViewController;
-        [airplayVC playPause];
-    }
+
+    [self checkAirplayStatus];
+    
+    
+    //    if ([GVMusicPlayerController sharedInstance].playbackState == MPMusicPlaybackStatePlaying) {
+//        [[GVMusicPlayerController sharedInstance] pause];
+//        DataStore *dataStore = [DataStore sharedDataStore];
+//        AirplayViewController *airplayVC = dataStore.airplayViewController;
+//        [airplayVC playPause];
+//    } else {
+//        [[GVMusicPlayerController sharedInstance] play];
+//        DataStore *dataStore = [DataStore sharedDataStore];
+//        AirplayViewController *airplayVC = dataStore.airplayViewController;
+//        [airplayVC playPause];
+//    }
 }
 
 - (IBAction)prevButtonPressed {
@@ -144,8 +148,8 @@
 
     MPMediaQuery *query = [MPMediaQuery songsQuery];
     [[GVMusicPlayerController sharedInstance] setQueueWithQuery:query];
-    [[GVMusicPlayerController sharedInstance] play];
-
+//    [[GVMusicPlayerController sharedInstance] play];
+    [self checkAirplayStatus];
 }
 
 - (IBAction)volumeChanged:(UISlider *)sender {
@@ -343,8 +347,8 @@
 }
 
 -(void)setupShimmerView
+
 {
-    
     FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.view.bounds];
     shimmeringView.shimmeringOpacity = 0.2;
     
@@ -366,7 +370,28 @@
 {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    [delegate isAirplayActive];
+    
+    if ([delegate isAirplayActive]) {
+        DataStore *dataStore = [DataStore sharedDataStore];
+        AirplayViewController *airplayVC = dataStore.airplayViewController;
+        [airplayVC playPause];
+        [[GVMusicPlayerController sharedInstance] pause];
+    }
+    
+    else{
+        
+        if ([GVMusicPlayerController sharedInstance].playbackState == MPMusicPlaybackStatePlaying) {
+            
+            [[GVMusicPlayerController sharedInstance] pause];
+        }
+        
+        else
+        
+        {
+            [[GVMusicPlayerController sharedInstance] play];
+        }
+        
+    }
     
 }
 
