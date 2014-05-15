@@ -40,12 +40,20 @@
 @property BOOL panningProgress;
 @property BOOL panningVolume;
 
+
+
+@property BOOL displayingFront;
+
 @end
 
 @implementation ViewController
 
 {
     BOOL _isBarHiding;
+
+
+
+    BOOL displayingFront;
 
 }
 
@@ -60,6 +68,8 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     [self setupShimmerView];
+    
+    self.displayingFront = YES;
     
 }
 
@@ -248,6 +258,35 @@
   //  [self.repeatButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
 }
 
+
+
+-(IBAction)homeTapped
+{
+    [UIView transitionWithView:self.chooseView
+                      duration:1.0
+                       options:(self.displayingFront ? UIViewAnimationOptionTransitionFlipFromRight :
+                                UIViewAnimationOptionTransitionFlipFromLeft)
+                    animations: ^{
+                        if(self.displayingFront)
+                        {
+                            self.bottomView.hidden = false;
+                            self.topView.hidden = false;
+                            self.chooseView.hidden = false;
+                        }
+//                        else
+//                        {
+//                            self.chooseView.hidden = false;
+//                            self.topView.hidden = false;
+//                            self.bottomView.hidden = false;
+//                        }
+                    }
+     
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            displayingFront = !displayingFront;
+                        }
+                    }];
+}
 
 
 #pragma mark - Toggle Bars
