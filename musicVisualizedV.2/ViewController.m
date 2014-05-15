@@ -39,14 +39,14 @@
 
 @property BOOL panningProgress;
 @property BOOL panningVolume;
-@property BOOL a;
+@property BOOL _displayingFront;
 @end
 
 @implementation ViewController
 
 {
     BOOL _isBarHiding;
-    BOOL a;
+    BOOL displayingFront;
 }
 
 - (void)viewDidLoad {
@@ -60,6 +60,8 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     [self setupShimmerView];
+    
+    self._displayingFront = YES;
     
 }
 
@@ -249,15 +251,34 @@
 }
 
 
-//-(IBAction)homeTapped
-//{
-//  
-//    if (a == NO) {
-//        [UIView transitionFromView:self.musicControlView toView:self.chooseView duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft completion:NULL];
-//        a = YES;
-//        }
-//
-//}
+-(IBAction)homeTapped
+{
+    
+    [UIView transitionWithView:self.chooseView
+                      duration:1.0
+                       options:(displayingFront ? UIViewAnimationOptionTransitionFlipFromRight :
+                                UIViewAnimationOptionTransitionFlipFromLeft)
+                    animations: ^{
+                        if(displayingFront)
+                        {
+                            self.bottomView.hidden = true;
+                            self.topView.hidden = true;
+                            self.chooseView.hidden = true;
+                        }
+                        else
+                        {
+                            self.chooseView.hidden = false;
+                            self.topView.hidden = false;
+                            self.bottomView.hidden = false;
+                        }
+                    }
+     
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            displayingFront = !displayingFront;
+                        }
+                    }];
+}
 
 #pragma mark - Toggle Bars
 
