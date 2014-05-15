@@ -14,6 +14,7 @@
 #import "UIViewController+AGBlurTransition.h"
 #import "FBShimmeringView.h"
 #import "FISAppDelegate.h"
+#import "CubeNavigationController.h"
 
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *songLabel;
@@ -33,25 +34,30 @@
 @property (weak, nonatomic) IBOutlet UIImageView *centerView;
 @property (weak, nonatomic) IBOutlet UIButton *airplayButton;
 @property (strong, nonatomic) NSTimer *timer;
+@property (weak, nonatomic) IBOutlet UIView *musicControlView;
 
 
 @property BOOL panningProgress;
 @property BOOL panningVolume;
+@property BOOL a;
 @end
 
 @implementation ViewController
 
 {
     BOOL _isBarHiding;
+    BOOL a;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self.view bringSubviewToFront:self.chooseView];
-
+    
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timedJob) userInfo:nil repeats:YES];
     [self.timer fire];
+    
+    [self.navigationController setNavigationBarHidden:YES];
     
     [self setupShimmerView];
     
@@ -242,6 +248,21 @@
   //  [self.repeatButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
 }
 
+
+-(IBAction)homeTapped
+{
+  
+    if (a == NO) {
+        [UIView transitionFromView:self.musicControlView toView:self.chooseView duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft completion:NULL];
+        a = YES;
+        }
+    
+    
+    //[self.navigationController popViewControllerAnimated:YES];
+
+//    [self.view bringSubviewToFront:self.chooseView];
+}
+
 #pragma mark - Toggle Bars
 
 -(void)configureBars
@@ -386,16 +407,15 @@
         [airplayVC playPause];
         [[GVMusicPlayerController sharedInstance] stop];
     }
-    
-    else{
-        
+    else
+    {
         if ([GVMusicPlayerController sharedInstance].playbackState == MPMusicPlaybackStatePlaying) {
             
             [[GVMusicPlayerController sharedInstance] pause];
-        }
+        } 
         
         else
-        
+            
         {
             [[GVMusicPlayerController sharedInstance] play];
         }
