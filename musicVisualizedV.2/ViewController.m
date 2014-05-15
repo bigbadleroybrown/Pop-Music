@@ -15,7 +15,6 @@
 #import "FBShimmeringView.h"
 #import "FISAppDelegate.h"
 
-
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *songLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
@@ -110,8 +109,9 @@
 
 -(IBAction)visualizerPressed
 {
-    MPVolumeView *volumeView = [ [MPVolumeView alloc] init] ;
+    MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(20, 20, 200, 50)];
     [volumeView setShowsVolumeSlider:NO];
+    [volumeView setShowsRouteButton:YES];
     [volumeView sizeToFit];
     [self.view addSubview:volumeView];
 }
