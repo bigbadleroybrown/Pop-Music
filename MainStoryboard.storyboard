@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="LSG-2t-rG1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -26,7 +26,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="GE7-6i-J9K" userLabel="Button - Play All Songs">
-                                        <rect key="frame" x="0.0" y="383.99999558662284" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="384" width="320" height="43.999987813774368"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.32392153530000001" green="0.32392153530000001" blue="0.32392153530000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
@@ -80,11 +80,6 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="IhY-3J-Bve">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="29p-JM-XYT">
                                 <rect key="frame" x="0.0" y="438" width="320" height="130"/>
@@ -232,7 +227,6 @@
                         <outlet property="bottomView" destination="29p-JM-XYT" id="eaG-xS-Ifb"/>
                         <outlet property="chooseView" destination="Y74-ZW-c9j" id="24J-TL-vVc"/>
                         <outlet property="imageView" destination="Xqs-3f-soU" id="b5o-BN-Kzj"/>
-                        <outlet property="musicControlView" destination="IhY-3J-Bve" id="rq1-ZQ-b58"/>
                         <outlet property="playPauseButton" destination="tF8-VD-WTT" id="HIZ-Pc-7t0"/>
                         <outlet property="progressSlider" destination="Eh7-Yz-mpU" id="TJf-NI-ngP"/>
                         <outlet property="shimmerViewController" destination="mE3-RJ-5yX" id="SSE-9N-xkj"/>
@@ -246,24 +240,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1100" y="8"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="m1C-v5-m10">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LSG-2t-rG1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TqD-Jm-92E">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="33F-zx-Bpd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PCW-6d-m5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="574" y="8"/>
         </scene>
     </scenes>
     <resources>

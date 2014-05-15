@@ -14,7 +14,7 @@
 #import "UIViewController+AGBlurTransition.h"
 #import "FBShimmeringView.h"
 #import "FISAppDelegate.h"
-#import "CubeNavigationController.h"
+
 
 @interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *songLabel;
@@ -249,19 +249,15 @@
 }
 
 
--(IBAction)homeTapped
-{
-  
-    if (a == NO) {
-        [UIView transitionFromView:self.musicControlView toView:self.chooseView duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft completion:NULL];
-        a = YES;
-        }
-    
-    
-    //[self.navigationController popViewControllerAnimated:YES];
-
-//    [self.view bringSubviewToFront:self.chooseView];
-}
+//-(IBAction)homeTapped
+//{
+//  
+//    if (a == NO) {
+//        [UIView transitionFromView:self.musicControlView toView:self.chooseView duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft completion:NULL];
+//        a = YES;
+//        }
+//
+//}
 
 #pragma mark - Toggle Bars
 

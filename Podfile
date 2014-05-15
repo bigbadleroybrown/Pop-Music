@@ -8,4 +8,4 @@ pod 'Shimmer', '~> 1.0'
 
 pod 'AGBlurTransition'
 
-pod 'ABCustomUINavigationController'
+
