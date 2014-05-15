@@ -108,6 +108,14 @@
 
 #pragma mark - IBActions
 
+-(IBAction)visualizerPressed
+{
+    MPVolumeView *volumeView = [ [MPVolumeView alloc] init] ;
+    [volumeView setShowsVolumeSlider:NO];
+    [volumeView sizeToFit];
+    [self.view addSubview:volumeView];
+}
+
 - (IBAction)playButtonPressed {
 
     [self checkAirplayStatus];
@@ -141,6 +149,7 @@
     picker.allowsPickingMultipleItems = YES;
     picker.transitioningDelegate = self.AG_blurTransitionDelegate;
     [self presentViewController:picker animated:YES completion:NULL];
+   
 
 }
 
@@ -375,7 +384,7 @@
         DataStore *dataStore = [DataStore sharedDataStore];
         AirplayViewController *airplayVC = dataStore.airplayViewController;
         [airplayVC playPause];
-        [[GVMusicPlayerController sharedInstance] pause];
+        [[GVMusicPlayerController sharedInstance] stop];
     }
     
     else{

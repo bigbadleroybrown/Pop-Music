@@ -25,8 +25,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GE7-6i-J9K">
-                                        <rect key="frame" x="0.0" y="478.00000247226393" width="320" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="GE7-6i-J9K" userLabel="Button - Play All Songs">
+                                        <rect key="frame" x="0.0" y="384" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.32392153530000001" green="0.32392153530000001" blue="0.32392153530000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
@@ -41,8 +41,8 @@
                                             <action selector="playEverythingButtonPressed" destination="2" eventType="touchUpInside" id="nkr-uK-qsl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Csk-8N-eF6">
-                                        <rect key="frame" x="0.0" y="431" width="320" height="43.999999496069748"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Csk-8N-eF6">
+                                        <rect key="frame" x="0.0" y="430.99999949606973" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.32392153530000001" green="0.32392153530000001" blue="0.32392153530000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
@@ -55,6 +55,22 @@
                                         </state>
                                         <connections>
                                             <action selector="chooseButtonPressed" destination="2" eventType="touchUpInside" id="SP2-iS-5eS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="zIz-Ee-lNE">
+                                        <rect key="frame" x="0.0" y="478" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.32392153530000001" green="0.32392153530000001" blue="0.32392153530000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Visualizer">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="visualizerPressed" destination="2" eventType="touchUpInside" id="gCG-ar-hRD"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="mE3-RJ-5yX">
