@@ -39,14 +39,14 @@
 
 @property BOOL panningProgress;
 @property BOOL panningVolume;
-@property BOOL a;
+
 @end
 
 @implementation ViewController
 
 {
     BOOL _isBarHiding;
-    BOOL a;
+
 }
 
 - (void)viewDidLoad {
@@ -249,15 +249,6 @@
 }
 
 
-//-(IBAction)homeTapped
-//{
-//  
-//    if (a == NO) {
-//        [UIView transitionFromView:self.musicControlView toView:self.chooseView duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft completion:NULL];
-//        a = YES;
-//        }
-//
-//}
 
 #pragma mark - Toggle Bars
 

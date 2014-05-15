@@ -26,7 +26,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="GE7-6i-J9K" userLabel="Button - Play All Songs">
-                                        <rect key="frame" x="0.0" y="384" width="320" height="43.999987813774368"/>
+                                        <rect key="frame" x="0.0" y="383.99999026646208" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.32392153530000001" green="0.32392153530000001" blue="0.32392153530000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
@@ -201,18 +201,6 @@
                                         </state>
                                         <connections>
                                             <action selector="chooseButtonPressed" destination="2" eventType="touchUpInside" id="8xp-lz-AxW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MG0-nh-s9I">
-                                        <rect key="frame" x="23" y="57" width="41" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="Home">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="homeTapped" destination="2" eventType="touchUpInside" id="bcR-yb-WiY"/>
                                         </connections>
                                     </button>
                                 </subviews>
