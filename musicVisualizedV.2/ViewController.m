@@ -39,7 +39,7 @@
 
 @property BOOL panningProgress;
 @property BOOL panningVolume;
-@property BOOL _displayingFront;
+@property BOOL displayingFront;
 @end
 
 @implementation ViewController
@@ -61,7 +61,7 @@
     
     [self setupShimmerView];
     
-    self._displayingFront = YES;
+    self.displayingFront = YES;
     
 }
 
@@ -253,24 +253,23 @@
 
 -(IBAction)homeTapped
 {
-    
     [UIView transitionWithView:self.chooseView
                       duration:1.0
-                       options:(displayingFront ? UIViewAnimationOptionTransitionFlipFromRight :
+                       options:(self.displayingFront ? UIViewAnimationOptionTransitionFlipFromRight :
                                 UIViewAnimationOptionTransitionFlipFromLeft)
                     animations: ^{
-                        if(displayingFront)
+                        if(self.displayingFront)
                         {
-                            self.bottomView.hidden = true;
-                            self.topView.hidden = true;
-                            self.chooseView.hidden = true;
-                        }
-                        else
-                        {
-                            self.chooseView.hidden = false;
-                            self.topView.hidden = false;
                             self.bottomView.hidden = false;
+                            self.topView.hidden = false;
+                            self.chooseView.hidden = false;
                         }
+//                        else
+//                        {
+//                            self.chooseView.hidden = false;
+//                            self.topView.hidden = false;
+//                            self.bottomView.hidden = false;
+//                        }
                     }
      
                     completion:^(BOOL finished) {
