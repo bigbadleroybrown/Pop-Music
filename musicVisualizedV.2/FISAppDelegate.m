@@ -48,6 +48,8 @@
     else{
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        
     }
     
     return YES;

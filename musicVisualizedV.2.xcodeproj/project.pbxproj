@@ -32,6 +32,7 @@
 		2E52F9561911728600BFC4AB /* Play_Similar_Music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E52F9521911728600BFC4AB /* Play_Similar_Music@2x.png */; };
 		2E52F959191173ED00BFC4AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52F958191173ED00BFC4AB /* ViewController.m */; };
 		2E52F95C1911741700BFC4AB /* NSString+TimeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52F95B1911741700BFC4AB /* NSString+TimeToString.m */; };
+		2E6C1E0F1933D67F0051DC1A /* VisualizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C1E0E1933D67F0051DC1A /* VisualizerViewController.m */; };
 		2E7A7AC818D35E18001892AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A7AC718D35E18001892AA /* Foundation.framework */; };
 		2E7A7ACA18D35E18001892AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A7AC918D35E18001892AA /* CoreGraphics.framework */; };
 		2E7A7ACC18D35E18001892AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E7A7ACB18D35E18001892AA /* UIKit.framework */; };
@@ -100,6 +101,8 @@
 		2E52F958191173ED00BFC4AB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2E52F95A1911741700BFC4AB /* NSString+TimeToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeToString.h"; sourceTree = "<group>"; };
 		2E52F95B1911741700BFC4AB /* NSString+TimeToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeToString.m"; sourceTree = "<group>"; };
+		2E6C1E0D1933D67F0051DC1A /* VisualizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisualizerViewController.h; sourceTree = "<group>"; };
+		2E6C1E0E1933D67F0051DC1A /* VisualizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisualizerViewController.m; sourceTree = "<group>"; };
 		2E7A7AC418D35E18001892AA /* musicVisualizedV.2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musicVisualizedV.2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7A7AC718D35E18001892AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2E7A7AC918D35E18001892AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -333,6 +336,8 @@
 				2E7F494F1901C84C00CC3A32 /* IPhoneViewController.m */,
 				2E52F957191173ED00BFC4AB /* ViewController.h */,
 				2E52F958191173ED00BFC4AB /* ViewController.m */,
+				2E6C1E0D1933D67F0051DC1A /* VisualizerViewController.h */,
+				2E6C1E0E1933D67F0051DC1A /* VisualizerViewController.m */,
 				2E7F49511901C85E00CC3A32 /* AirplayViewController.h */,
 				2E7F49521901C85E00CC3A32 /* AirplayViewController.m */,
 				2E7A7B0018D35EB9001892AA /* FISVisualizerView.h */,
@@ -517,6 +522,7 @@
 				2E7A7AD818D35E18001892AA /* FISAppDelegate.m in Sources */,
 				2E7A7B0218D35EB9001892AA /* FISVisualizerView.mm in Sources */,
 				2E52F95C1911741700BFC4AB /* NSString+TimeToString.m in Sources */,
+				2E6C1E0F1933D67F0051DC1A /* VisualizerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

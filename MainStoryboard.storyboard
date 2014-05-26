@@ -21,7 +21,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="GE7-6i-J9K" userLabel="Button - Play All Songs">
-                                        <rect key="frame" x="0.0" y="383.99999361016603" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="383.99998962352169" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.32392153530000001" green="0.32392153530000001" blue="0.32392153530000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
@@ -239,6 +239,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1100" y="8"/>
+        </scene>
+        <!--Visualizer View Controller-->
+        <scene sceneID="Grb-jR-brN">
+            <objects>
+                <viewController storyboardIdentifier="instructions" id="ls7-yZ-vIW" customClass="VisualizerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WVq-Z6-0xA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homebackground.png" id="IQb-YT-zNi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="0wE-9A-TZb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="visualizerview" destination="0wE-9A-TZb" id="kD8-hH-6o3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ual-PF-vep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600" y="12"/>
         </scene>
     </scenes>
     <resources>
