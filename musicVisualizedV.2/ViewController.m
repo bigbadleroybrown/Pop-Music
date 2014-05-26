@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *centerView;
 @property (weak, nonatomic) IBOutlet UIButton *airplayButton;
 @property (strong, nonatomic) NSTimer *timer;
+
 @property (weak, nonatomic) IBOutlet UIView *musicControlView;
 
 
@@ -152,10 +153,11 @@
 
 - (IBAction)chooseButtonPressed {
     
-    MPMediaPickerController *picker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeAnyAudio];
+    MPMediaPickerController *picker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
     picker.delegate = self;
     picker.allowsPickingMultipleItems = YES;
     picker.transitioningDelegate = self.AG_blurTransitionDelegate;
+    picker.showsCloudItems = YES;
     [self presentViewController:picker animated:YES completion:NULL];
    
 
@@ -264,12 +266,7 @@
                             self.topView.hidden = false;
                             self.chooseView.hidden = false;
                         }
-//                        else
-//                        {
-//                            self.chooseView.hidden = false;
-//                            self.topView.hidden = false;
-//                            self.bottomView.hidden = false;
-//                        }
+                        
                     }
      
                     completion:^(BOOL finished) {
@@ -421,7 +418,7 @@
         DataStore *dataStore = [DataStore sharedDataStore];
         AirplayViewController *airplayVC = dataStore.airplayViewController;
         [airplayVC playPause];
-        [[GVMusicPlayerController sharedInstance] stop];
+        [[GVMusicPlayerController sharedInstance] pause];
     }
     else
     {

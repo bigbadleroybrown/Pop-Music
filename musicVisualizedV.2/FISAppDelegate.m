@@ -40,6 +40,15 @@
     
     [center addObserver:self selector:@selector(handleScreenDidConnectNotification:) name:UIScreenDidConnectNotification object:nil];
  
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
+        //app has launched once
+    
+    }
+    
+    else{
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     return YES;
 }
@@ -100,7 +109,7 @@
     DataStore *airplayDataStore = [DataStore sharedDataStore];
     
     
-    if (!self.secondWindow)
+    if (!self.secondWindow)	
     {
         self.secondWindow = [[UIWindow alloc] initWithFrame:screenBounds];
         self.secondWindow.screen = newScreen;
