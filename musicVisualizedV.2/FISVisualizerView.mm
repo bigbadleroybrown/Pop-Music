@@ -96,7 +96,7 @@
 {
     
     //scale set to a default value of 0.5 and check to see whether or not _audioPlayer is playing.
-    float scale = 0.1;
+    float scale = 0.5;
     if (_audioPlayer.playing) {
         
         //If it is playing call updateMeters on _audioPlayer, which refreshes the AVAudioPlayer data based on the current audio.
@@ -117,7 +117,7 @@
         //This is the most important part. As the level value is decreased the, the musics effect on the scale also falls.
         
         float level = meterTable.ValueAt(power);
-        scale = level *1;
+        scale = level *5;
     }
     
     //scale of the emitter’s particles is set to the new scale value. (If _audioPlayer was not playing, this will be the default scale of 0.5; otherwise, it will be some value based on the current audio levels.

@@ -57,6 +57,11 @@
     
 }
 
+- (IBAction)dimissModal:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
