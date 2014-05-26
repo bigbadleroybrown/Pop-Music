@@ -109,7 +109,7 @@
     DataStore *airplayDataStore = [DataStore sharedDataStore];
     
     
-    if (!self.secondWindow)
+    if (!self.secondWindow)	
     {
         self.secondWindow = [[UIWindow alloc] initWithFrame:screenBounds];
         self.secondWindow.screen = newScreen;

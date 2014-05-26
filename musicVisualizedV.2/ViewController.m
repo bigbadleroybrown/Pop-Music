@@ -266,12 +266,7 @@
                             self.topView.hidden = false;
                             self.chooseView.hidden = false;
                         }
-//                        else
-//                        {
-//                            self.chooseView.hidden = false;
-//                            self.topView.hidden = false;
-//                            self.bottomView.hidden = false;
-//                        }
+                        
                     }
      
                     completion:^(BOOL finished) {
@@ -423,7 +418,7 @@
         DataStore *dataStore = [DataStore sharedDataStore];
         AirplayViewController *airplayVC = dataStore.airplayViewController;
         [airplayVC playPause];
-        [[GVMusicPlayerController sharedInstance] stop];
+        [[GVMusicPlayerController sharedInstance] pause];
     }
     else
     {

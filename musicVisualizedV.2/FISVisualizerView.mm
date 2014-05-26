@@ -36,7 +36,7 @@
         
         CGFloat width = MAX(frame.size.width*2, frame.size.height);
         CGFloat height = MIN(frame.size.width, frame.size.height);
-        emitterLayer.emitterPosition = CGPointMake(width, height); //(width/2, height/2.0);
+        emitterLayer.emitterPosition = CGPointMake(width, height);
         
         NSLog(@"%f",self.bounds.size.height);
         emitterLayer.emitterSize = CGSizeMake(self.bounds.size.height *2, self.bounds.size.width *2); //originally -80, 60 need to figure out how to set size to bounds of screen
@@ -51,7 +51,7 @@
         childCell.birthRate = 60.0f; //number of particles emitted per second
         
         childCell.velocity = 1.0f; //particles velocity in points per second
-        childCell.contents = (id) [[UIImage imageNamed:@"smallHD.png"] CGImage];
+        childCell.contents = (id) [[UIImage imageNamed:@"spark.png"] CGImage];
         self.cell.emitterCells = @[childCell];
         
         //sets the particle color, along with a range by which each of the red, green, and blue color components may vary.
