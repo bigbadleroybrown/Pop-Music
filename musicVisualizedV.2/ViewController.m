@@ -14,9 +14,10 @@
 #import "UIViewController+AGBlurTransition.h"
 #import "FBShimmeringView.h"
 #import "FISAppDelegate.h"
+#import "VisualizerViewController.h"
 
 
-@interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate>
+@interface ViewController () <GVMusicPlayerControllerDelegate, MPMediaPickerControllerDelegate, UIViewControllerTransitioningDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *songLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -118,11 +119,10 @@
 
 -(IBAction)visualizerPressed
 {
-    MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(20, 20, 200, 50)];
-    [volumeView setShowsVolumeSlider:NO];
-    [volumeView setShowsRouteButton:YES];
-    [volumeView sizeToFit];
-    [self.view addSubview:volumeView];
+    VisualizerViewController *instructions = [self.storyboard instantiateViewControllerWithIdentifier:@"instructions"];
+    instructions.transitioningDelegate = self;
+    [self presentViewController:instructions animated:YES completion:NULL];
+    
 }
 
 - (IBAction)playButtonPressed {
