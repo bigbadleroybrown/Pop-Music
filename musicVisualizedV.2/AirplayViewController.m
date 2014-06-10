@@ -84,6 +84,14 @@
     _isPlaying = !_isPlaying;
 }
 
+-(void)skipToNextItem
+
+{
+    
+    
+    
+}
+
 - (void)playURL:(NSURL *)url
 
 {
